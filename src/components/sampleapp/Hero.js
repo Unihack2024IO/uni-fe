@@ -8,7 +8,7 @@ import {
   useMediaQuery,
 } from '@chakra-ui/react';
 import React from 'react';
-import chakraHero from '../assets/chakraHero.jpg';
+import chakraHero from '../../assets/chakraHero.jpg';
 
 const Hero = () => {
   const [isLargerThanLG] = useMediaQuery('(min-width: 62em)');

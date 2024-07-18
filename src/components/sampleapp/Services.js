@@ -7,7 +7,7 @@ import {
   useMediaQuery,
 } from '@chakra-ui/react';
 import React from 'react';
-import teamImage from '../assets/teamImage.jpg';
+import teamImage from '../../assets/teamImage.jpg';
 
 const Services = () => {
   const [isLargerThanLG] = useMediaQuery('(min-width: 62em)');
