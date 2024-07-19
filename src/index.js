@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { ColorModeScript } from "@chakra-ui/react";
 import theme from "./theme";
-import Sample from "./pages/sample";
+import ExplorePage from "./pages/mainpages/explorepage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,7 +14,7 @@ root.render(
       <ChakraProvider>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Routes>
-          <Route path="/" element={<Sample />} />
+          <Route path="/" element={<ExplorePage />} />
         </Routes>
       </ChakraProvider>
     </BrowserRouter>

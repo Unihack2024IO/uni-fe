@@ -42,7 +42,7 @@ const Nav = ({ onOpen, ref }) => {
       </Text>
 
       <Spacer />
-      
+
       <Flex alignItems="center">
         <IconButton mr="10" w={6} h={6} p={5} onClick={toggleColorMode}>
           {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
@@ -66,3 +66,11 @@ const Nav = ({ onOpen, ref }) => {
 };
 
 export default Nav;
+
+const navbar = () => {
+  return (
+    <div>
+      <Nav />
+    </div>
+  );
+}
