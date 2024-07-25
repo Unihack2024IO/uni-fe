@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const TripRecommendation = ({ number }) => {
     return (
         <Flex align="center">
-            <Link to="/trip">
+            <Link to="/tripSuggestion">
                 <Button
                     width="30"
                     height="10"

@@ -7,6 +7,7 @@ import hcm from '../../assets/images/places/hcmcity.jpg';
 import hanoi from '../../assets/images/places/hanoicity.jpg';
 import hue from '../../assets/images/places/huecity.jpg';
 import hagiang from '../../assets/images/places/hagiangcity.jpg';
+import ScrollableContainer from '../common/ScrollBar';
 const DestinationList = () => {
     const array = [
         { id: 1, photo: danang, Name: 'Cau ban tay', Location: 'Son tra, Da Nang', rating: 4.7 },
@@ -34,20 +35,19 @@ const DestinationList = () => {
 
     return (
         <Flex>
-            <Flex wrap="wrap" justifyContent="space-between" gap={6}>
-                {array.map((item) => (
-                    <DestinationCard
-                        key={item.id}
-                        item={item}
-                        setSelectedItem={setSelectedItem}
-                    />
-                ))}
-            </Flex>
-            <DestinationDetails
-                selectedItem={selectedItem}
-                handleClose={handleClose}
-            />
-        </Flex>
+            <ScrollableContainer>
+                <Flex wrap="wrap" justifyContent="space-between" height="120vh">
+                    {array.map((item) => (
+                        <DestinationCard
+                            key={item.id}
+                            item={item}
+                            setSelectedItem={setSelectedItem}
+                        />
+                    ))}
+                </Flex>
+            </ScrollableContainer>
+            <DestinationDetails selectedItem={selectedItem} handleClose={handleClose} />
+        </Flex >
     );
 };
 

@@ -1,24 +1,33 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import theme from './theme'; // Ensure you have a theme file
+import Home from './pages/Home';
+import Destination from './pages/Destination';
+import UserPersona from './pages/UserPersona';
+import TripSuggestion from './pages/TripSuggestion';
 
-import { ChakraProvider } from "@chakra-ui/react";
-import { ColorModeScript } from "@chakra-ui/react";
-import theme from "./theme";
-import Destination from "./pages/Destination";
-import Home from "./pages/Home";
-import UserPersona from "./pages/UserPersona";
-import TripSuggestion from "./pages/TripSuggestion";
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// Your Google Client ID
+const CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ChakraProvider>
+    <GoogleOAuthProvider clientId={CLIENT_ID}>
+      <ChakraProvider theme={theme}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <Routes>
-          <Route path="/" element={<TripSuggestion />} />
-        </Routes>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/destination" element={<Destination />} />
+            <Route path="/userpersona" element={<UserPersona />} />
+            <Route path="/tripsuggestion" element={<TripSuggestion />} />
+          </Routes>
+        </BrowserRouter>
       </ChakraProvider>
-    </BrowserRouter>
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );

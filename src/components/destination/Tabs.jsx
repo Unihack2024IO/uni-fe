@@ -4,26 +4,28 @@ import SearchBar from './SearchBar';
 
 const TabComponent = () => {
     return (
-        <Box margin='3vw' >
-            <Flex justifyContent='space-between' margin='2vw 0'>
-                < Text fontSize="3xl" fontWeight="bold" > Explore </Text >
-                <SearchBar />
-            </Flex>
+        <Box margin='0 2vw' >
+
+            < Text fontSize="3xl" fontWeight="bold" > Explore </Text >
+
             <Tabs variant='solid-rounded' colorScheme='black'>
-                <TabList>
-                    <Tab _selected={{ color: 'white', bg: 'black' }}>
-                        Attractions
-                    </Tab>
-                    <Tab _selected={{ color: 'white', bg: 'black' }}>
-                        Events
-                    </Tab>
-                    <Tab _selected={{ color: 'white', bg: 'black' }}>
-                        Restaurants
-                    </Tab>
-                    <Tab _selected={{ color: 'white', bg: 'black' }}>
-                        Stays
-                    </Tab>
-                </TabList>
+                <Flex justifyContent='left' margin='2vw 0'>
+                    <TabList>
+                        <Tab _selected={{ color: 'white', bg: 'black' }}>
+                            Attractions
+                        </Tab>
+                        <Tab _selected={{ color: 'white', bg: 'black' }}>
+                            Events
+                        </Tab>
+                        <Tab _selected={{ color: 'white', bg: 'black' }}>
+                            Restaurants
+                        </Tab>
+                        <Tab _selected={{ color: 'white', bg: 'black' }}>
+                            Stays
+                        </Tab>
+                    </TabList>
+                    <SearchBar />
+                </Flex>
                 <TabPanels>
                     <TabPanel>
                         < DestinationList />
@@ -39,7 +41,7 @@ const TabComponent = () => {
                     </TabPanel>
                 </TabPanels>
             </Tabs>
-        </Box>
+        </Box >
     );
 }
 

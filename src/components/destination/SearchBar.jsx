@@ -7,7 +7,7 @@ const SearchBar = () => {
         <InputGroup
             width="70vh"
             height="7vh"
-            mr="30"
+            ml="50"
         >
             <InputLeftElement pointerEvents="none">
                 <SearchIcon color="gray.300" />
@@ -15,11 +15,11 @@ const SearchBar = () => {
             <Input
                 width="70vh"
                 height="100%"
+                border="none"
                 borderRadius="full"
                 placeholder="Search for your destination..."
-                variant="outline"
-                borderColor="gray.400"
-                boxShadow="md"
+                variant="none"
+                boxShadow="0px 5px 6px rgba(0, 0, 0, 0.1)"
                 _placeholder={{ color: 'gray.500' }}
             />
         </InputGroup>

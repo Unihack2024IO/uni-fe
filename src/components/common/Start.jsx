@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Start = () => {
     return (
         <Box mt={8}>
-            <Link to="/Destination.js">
+            <Link to="/userpersona">
                 <Button
                     fontSize="4xl"
                     color="white"
