@@ -1,8 +1,8 @@
-import NavBar from '../components/common/navbar';
-import mainui from '../assets/images/mainui.png';
+import wallpaper from '../assets/images/walls/home.png';
 import { Box, Image } from '@chakra-ui/react';
-import { MainMessage } from '../components/common/navbar';
-export default function HomePage() {
+import Navbar from '../components/common/Navbar';
+import Start from '../components/common/Start';
+export default function Home() {
     return (
         <Box
             width="full"
@@ -15,20 +15,26 @@ export default function HomePage() {
                     width: "100%"
                 }}
             >
-                <NavBar />
+                <Navbar />
             </div>
 
             <div>
-                <Image src={mainui} alt="Main UI" width="100%" height="100%" objectFit="cover" />
+                <Image
+                    src={wallpaper}
+                    alt="Main UI"
+                    width="100vw"
+                    height="100vh"
+                    objectFit="cover"
+                />
             </div>
             <div
                 style={{
                     position: "absolute",
-                    bottom: "25%",
+                    bottom: "15%",
                     left: "5%"
                 }}
             >
-                <MainMessage />
+                <Start />
             </div>
 
         </Box>

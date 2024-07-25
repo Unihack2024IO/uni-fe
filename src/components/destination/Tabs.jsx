@@ -1,9 +1,14 @@
-import { Tabs, TabList, TabPanels, Tab, TabPanel, Text, Box } from '@chakra-ui/react';
-import ContentDisplay from '../Explore/ContentDisplay';
-const TabsComponent = () => {
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Text, Box, Flex } from '@chakra-ui/react';
+import DestinationList from './DestinationList';
+import SearchBar from './SearchBar';
+
+const TabComponent = () => {
     return (
         <Box margin='3vw' >
-            < Text fontSize="3xl" fontWeight="bold" margin='2vw 0' > Explore </Text >
+            <Flex justifyContent='space-between' margin='2vw 0'>
+                < Text fontSize="3xl" fontWeight="bold" > Explore </Text >
+                <SearchBar />
+            </Flex>
             <Tabs variant='solid-rounded' colorScheme='black'>
                 <TabList>
                     <Tab _selected={{ color: 'white', bg: 'black' }}>
@@ -21,16 +26,16 @@ const TabsComponent = () => {
                 </TabList>
                 <TabPanels>
                     <TabPanel>
-                        <ContentDisplay />
+                        < DestinationList />
                     </TabPanel>
                     <TabPanel>
-                        <p>two!</p>
+                        < DestinationList />
                     </TabPanel>
                     <TabPanel>
-                        <p>three!</p>
+                        < DestinationList />
                     </TabPanel>
                     <TabPanel>
-                        <p>four!</p>
+                        < DestinationList />
                     </TabPanel>
                 </TabPanels>
             </Tabs>
@@ -38,4 +43,4 @@ const TabsComponent = () => {
     );
 }
 
-export default TabsComponent;
+export default TabComponent;
