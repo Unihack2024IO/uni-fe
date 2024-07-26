@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Destination from './pages/Destination';
 import UserPersona from './pages/UserPersona';
 import TripSuggestion from './pages/TripSuggestion';
+import Advisor from './components/destination/Advisor';
 // Your Google Client ID
 const CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID';
 
@@ -24,6 +25,7 @@ root.render(
             <Route path="/destination" element={<Destination />} />
             <Route path="/userpersona" element={<UserPersona />} />
             <Route path="/tripsuggestion" element={<TripSuggestion />} />
+            <Route path="/advisor" element={<Advisor />} />
           </Routes>
         </BrowserRouter>
       </ChakraProvider>

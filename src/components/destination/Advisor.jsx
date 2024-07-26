@@ -89,12 +89,18 @@ const Advisor = ({ event }) => {
     return (
         <Box
             mx="auto"
+            maxWidth={"50%"}
+            mt={4}
+            border={"1px solid #e2e8f0"}
+            boxShadow={"md"}
+            borderRadius={"md"}
+            p="1.5rem"
         >  
-            <Heading size='sm' marginBottom={"0.5rem"}>
+            <Heading size='md' marginBottom={"1rem"}>
                 Quyết định: {event.recommendation.shouldVisit.decision}
             </Heading>
             <Flex gap="0.5rem">
-                <Heading size='sm' color="gray.700">
+                <Heading size='sm' color="gray.700" width={"70px"}>
                     Lí do:
                 </Heading>
                 <Text fontSize="md" color="gray.600" mb={4}>
