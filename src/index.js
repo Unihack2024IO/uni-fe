@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import Destination from './pages/Destination';
 import UserPersona from './pages/UserPersona';
 import TripSuggestion from './pages/TripSuggestion';
-
 // Your Google Client ID
 const CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID';
 
