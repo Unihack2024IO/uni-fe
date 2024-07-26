@@ -1,7 +1,8 @@
 import React from 'react';
 import EventInfo from './EventInfo';
 
-const Events = () => {
+const Events = ({item}) => {
+    console.log(item);
     // Define the event data
     const event = {
         activities: [
@@ -22,7 +23,7 @@ const Events = () => {
     };
 
     return (
-        <EventInfo event={event} />
+        <EventInfo event={item} />
     );
 };
 
