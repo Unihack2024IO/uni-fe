@@ -9,7 +9,7 @@ const SearchBar = () => {
             height="7vh"
             ml="50"
         >
-            <InputLeftElement pointerEvents="none">
+            <InputLeftElement pointerEvents="none" >
                 <SearchIcon color="gray.300" />
             </InputLeftElement>
             <Input
