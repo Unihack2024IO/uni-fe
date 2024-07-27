@@ -1,13 +1,34 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, SimpleGrid } from '@chakra-ui/react'
-import dog from '../../assets/images/walls/dog.png'
+import { Card, CardHeader, CardBody, CardFooter, Heading, SimpleGrid, Flex } from '@chakra-ui/react'
+import blue from '../../assets/images/walls/blue.jpg'
 const Category = ({ category }) => {
     return (
         <SimpleGrid spacing={4}>
-            <Card backgroundImage={dog} backgroundSize="cover" backgroundPosition="center">
-                <CardBody>
-                    <Heading size='md'>TO DO</Heading>
-                </CardBody>
-            </Card>
+            <Flex direction="column">
+                <Flex justifyContent="center">
+                    <Card backgroundImage={blue} backgroundSize="cover" backgroundPosition="center">
+                        <CardBody>
+                            <Heading size='md'>TO DO</Heading>
+                        </CardBody>
+                    </Card>
+                    <Card backgroundImage={blue} backgroundSize="cover" backgroundPosition="center">
+                        <CardBody>
+                            <Heading size='md'>TO DO</Heading>
+                        </CardBody>
+                    </Card>
+                </Flex>
+                <Flex justifyContent="center">
+                    <Card backgroundImage={blue} backgroundSize="cover" backgroundPosition="center">
+                        <CardBody>
+                            <Heading size='md'>TO DO</Heading>
+                        </CardBody>
+                    </Card>
+                    <Card backgroundImage={blue} backgroundSize="cover" backgroundPosition="center">
+                        <CardBody>
+                            <Heading size='md'>TO DO</Heading>
+                        </CardBody>
+                    </Card>
+                </Flex>
+            </Flex>
         </SimpleGrid>
     )
 }

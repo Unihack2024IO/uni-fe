@@ -48,11 +48,11 @@ const DestinationDetails = ({ selectedItem, handleClose }) => {
                 onClick={handleClose}
             />
             <Heading as="h3" size="lg" mb={3}>
-                {selectedItem.Name}
+                {selectedItem.name}
             </Heading>
             <Image
                 src={selectedItem.photo}
-                alt={selectedItem.Name}
+                alt={selectedItem.name}
                 objectFit="cover"
                 borderRadius="md"
                 mb={4}
@@ -60,8 +60,8 @@ const DestinationDetails = ({ selectedItem, handleClose }) => {
                 height="200px"
             />
             <ScrollableContainer>
-                <Events />
-                <Attractions />
+                <Events item={selectedItem}/>
+                <Attractions item={selectedItem} />
             </ScrollableContainer>
         </Box>
     );
