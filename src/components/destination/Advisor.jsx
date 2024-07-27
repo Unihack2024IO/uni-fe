@@ -85,7 +85,8 @@ const Advisor = ({ event }) => {
       ],
       "advice": "Hãy tận hưởng trọn vẹn không khí sôi động và màn trình diễn ánh sáng tuyệt đẹp của Cầu Rồng."
     }
-    return (
+  }
+    return(
         <Box
             padding="0"
         >  
@@ -124,28 +125,7 @@ const Advisor = ({ event }) => {
                     </Text>
                 ))}
             </Text>
-            <Divider my={4} />
-            <Heading size='sm' marginBottom={"0.5rem"}>
-                Chú ý:
-            </Heading>
-            <Text fontSize="md" color="gray.600" mb={4} ml={"1rem"} mt={"0.5rem"}>
-                {event.caution.warnings.map((warning, index) => (
-                    <HStack key={index} fontSize="md" color="gray.600" mb={2}>
-                        <WarningIcon boxSize={4} color="red.500" />
-                        <Text>{warning.warning}</Text>
-                    </HStack>
-                ))}
-            </Text>
-            <Divider my={4} />
-            <Heading size='sm' marginBottom={"0.5rem"}>
-              Thời gian lý tưởng:
-            </Heading>
-            <Text fontSize="md" color="gray.600" mb={4}>
-                {event.ideal_time}
-            </Text>
-          </Flex>
-        ))}
-      </Stack>
+            
       <Divider my={4} />
       <Heading size="sm" marginBottom="0.5rem">
         Chú ý:
