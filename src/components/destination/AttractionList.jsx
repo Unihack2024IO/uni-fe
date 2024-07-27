@@ -16,7 +16,6 @@ const attractionFilter = (attractionList) => {
         description: item.description,
         contactInfo: item.contactInfo,
         entryFee: item.entryFee,
-        imageUrl: item.imageUrl,
         activities: item.activities,
         type : item.type,
         time : item.time,
@@ -26,7 +25,7 @@ const attractionFilter = (attractionList) => {
 
 const getAttractionList = async () => {
     // const API = process.env.REACT_APP_HOST + "/response/activities";
-    const API = process.env.REACT_APP_HOST + "/activities";
+    const API = process.env.REACT_APP_HOST + "/response/activities";
     try {
         const response = await axios.get(API);
         return response.data.activityArray || [];

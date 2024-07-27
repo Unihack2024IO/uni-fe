@@ -85,6 +85,7 @@ const Advisor = ({ event }) => {
       ],
       "advice": "Hãy tận hưởng trọn vẹn không khí sôi động và màn trình diễn ánh sáng tuyệt đẹp của Cầu Rồng."
     }
+<<<<<<< HEAD
   };
 
   return (
@@ -123,6 +124,49 @@ const Advisor = ({ event }) => {
           </Text>
         ))}
       </Stack>
+=======
+  }
+    return(
+        <Box
+            padding="0"
+        >  
+            <Heading size='lg' marginBottom={"1.5rem"}>
+                Quyết định: {
+                  event.recommendation.shouldVisit.decision === "yes" ? "😍" 
+                  : event.recommendation.shouldVisit.decision === "no" ? "😞" 
+                  : "🤔"
+                }
+            </Heading>
+            <Flex gap="0.5rem">
+                <Heading size='sm' color="gray.700" width={"80px"}>
+                    Lí do:
+                </Heading>
+                <Text fontSize="md" color="gray.600" mb={2}>
+                    {event.recommendation.shouldVisit.reasons.pro.map((reason, index) => (
+                        <Text key={index} fontSize="md" color="gray.600" mb={2}>
+                            &#8226; {reason}
+                        </Text>
+                    ))}
+                    {event.recommendation.shouldVisit.reasons.con.map((reason, index) => (
+                        <Text key={index} fontSize="md" color="gray.600" mb={2}>
+                            &#8226; {reason}
+                        </Text>
+                    ))}
+                </Text>
+            </Flex>
+            <Divider my={4} />
+            <Heading size='sm' marginBottom={"0.5rem"}>
+                Cần chuẩn bị: 
+            </Heading>
+            <Text fontSize="md" color="gray.600" mb={4} ml={"1rem"}>
+                {event.preparation.items.map((item, index) => (
+                    <Text key={index} fontSize="md" color="gray.600" mb={2}>
+                        <AddIcon boxSize={3} mr={"0.5rem"} color="green.500"/> {item.item} - {item.reason}
+                    </Text>
+                ))}
+            </Text>
+            
+>>>>>>> 1031fc869804bd55f79fd406d9aa39b7d2ae5f32
       <Divider my={4} />
       <Heading size="sm" marginBottom="0.5rem">
         Chú ý:

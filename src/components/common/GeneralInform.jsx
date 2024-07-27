@@ -10,7 +10,14 @@ import {
     Input,
     Box,
     useBreakpointValue,
-    useStyleConfig
+    useStyleConfig,
+    Flex,
+    Text,
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper
 } from '@chakra-ui/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';

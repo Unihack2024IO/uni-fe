@@ -40,8 +40,6 @@ const Attractions = ({ item }) => {
 
         const fetchData = async () => {
 
-            console.log(item);
-
             const res = await getRes(item.destinationId);
 
             setAttraction(res);
