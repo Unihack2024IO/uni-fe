@@ -11,17 +11,18 @@ import {
     Text,
     IconButton,
     Button,
-    Link as ChakraLink
+    Link as ChakraLink,
+    HStack,
+    VStack,
 } from '@chakra-ui/react';
-
-import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { MdDelete, MdCheckCircle } from 'react-icons/md';
+import { ExternalLinkIcon, CalendarIcon } from '@chakra-ui/icons';
+import { MdDelete, MdCheckCircle, MdLocationOn, MdAccessTime, MdAttachMoney, MdOutlineDescription } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 const Stop = ({ stop, onRemove }) => {
     return (
         <Accordion allowToggle>
-            <AccordionItem borderRadius="md" overflow="hidden" boxShadow="md">
+            <AccordionItem borderRadius="md" overflow="hidden" boxShadow="md" mb={4}>
                 <AccordionButton _expanded={{ bg: 'gray.100', color: 'black' }} p={4}>
                     <Box display="flex" alignItems="center" mr={4}>
                         <MdCheckCircle color="green" size="20px" mr="5" />
@@ -39,25 +40,26 @@ const Stop = ({ stop, onRemove }) => {
                             <Heading as="h3" size="md" noOfLines={1}>
                                 {stop.name}
                             </Heading>
-                            <Text fontSize="sm" color="gray.500">
-                                {stop.location}
-                            </Text>
-                            <Text fontSize="sm" color="gray.500">
-                                {stop.duration}
-                            </Text>
+                            <HStack fontSize="sm" color="gray.500" spacing={2}>
+                                <MdLocationOn />
+                                <Text>{stop.location}</Text>
+                            </HStack>
+                            <HStack fontSize="sm" color="gray.500" spacing={2}>
+                                <MdAccessTime />
+                                <Text>{stop.duration}</Text>
+                            </HStack>
                         </Box>
                     </Box>
                     <IconButton
                         aria-label="Remove stop"
-                        icon={<MdDelete boxSize={5} />}
+                        icon={<MdDelete />}
                         colorScheme="red"
                         variant="outline"
                         onClick={onRemove}
                         border="none"
-                        size="3xl"
-                        mr="4"
+                        size="md"
+                        mr={4}
                     />
-
                     <AccordionIcon />
                 </AccordionButton>
                 <AccordionPanel pb={4} position="relative">
@@ -71,9 +73,18 @@ const Stop = ({ stop, onRemove }) => {
                         width="100%"
                         height="200px"
                     />
-                    <Text mb={4}>{stop.activity}</Text>
-                    <Text mb={4}>{stop.reason}</Text>
-                    <Text mb={4} fontWeight="bold">{stop.priceRange}</Text>
+                    <VStack align="start" spacing={3}>
+                        <HStack align="center" fontSize="sm" color="gray.500">
+                            <MdOutlineDescription /><Text>{stop.activity}</Text>
+                        </HStack>
+                        <HStack align="center" fontSize="sm" color="gray.500">
+                            <CalendarIcon /><Text>{stop.reason}</Text>
+                        </HStack>
+                        <HStack fontSize="sm" color="gray.500" spacing={2}>
+                            <MdAttachMoney />
+                            <Text fontWeight="bold">{stop.priceRange}</Text>
+                        </HStack>
+                    </VStack>
                     <ChakraLink as={Link} to={`/destination/${stop.id}`}>
                         <Button colorScheme="teal" mt={4} rightIcon={<ExternalLinkIcon />}>Book</Button>
                     </ChakraLink>

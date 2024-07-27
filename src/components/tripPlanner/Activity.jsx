@@ -13,9 +13,17 @@ import {
     Link as ChakraLink,
     Badge,
     Stack,
+    HStack,
 } from '@chakra-ui/react';
-import { DragHandleIcon, ExternalLinkIcon } from '@chakra-ui/icons';
-import { MdDelete, MdLocationOn, MdAccessTime, MdStar } from 'react-icons/md';
+import {
+    DragHandleIcon,
+    ExternalLinkIcon,
+    InfoOutlineIcon,
+    PhoneIcon,
+    CalendarIcon,
+    TimeIcon,
+} from '@chakra-ui/icons';
+import { MdDelete, MdLocationOn, MdAccessTime, MdStar, MdAttachMoney, MdOutlineDescription } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -82,11 +90,18 @@ const Activity = ({ activity, onRemove }) => {
                         height="200px"
                     />
                     <Stack spacing={3}>
-                        <Text fontWeight="bold">{activity.activity}</Text>
-                        <Text>{activity.reason}</Text>
-                        <Stack direction="row" align="center" fontSize="sm" color="gray.500">
-                            <MdStar /><Text>{activity.priceRange}</Text>
-                        </Stack>
+                        <HStack align="center" fontSize="sm" color="gray.500">
+                            <MdOutlineDescription /><Text>{activity.activity}</Text>
+                        </HStack>
+                        <HStack align="center" fontSize="sm" color="gray.500">
+                            <MdAttachMoney /><Text>{activity.priceRange}</Text>
+                        </HStack>
+                        <HStack align="center" fontSize="sm" color="gray.500">
+                            <CalendarIcon /><Text>{activity.reason}</Text>
+                        </HStack>
+                        <HStack align="center" fontSize="sm" color="gray.500">
+                            <PhoneIcon /><Text>{activity.contact}</Text>
+                        </HStack>
                     </Stack>
                 </AccordionPanel>
             </AccordionItem>
