@@ -44,6 +44,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
             />
             <ScrollableContainer>
             <Box mt="4">
+
             {attraction.description && (
                 <Text fontSize="md" color="gray.600" mb={4}>
                     {attraction.description}

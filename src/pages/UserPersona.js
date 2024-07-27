@@ -5,6 +5,7 @@ import SaveAndExit from "../components/preference/SaveAndExit";
 import Stepper from "../components/preference/Stepper";
 import BasicInfo from "../components/preference/BasicInfo";
 import blue from '../assets/images/walls/blue.jpg';
+import voyage from '../assets/images/walls/voyage.png';
 import VacationInfo from '../components/preference/VacationInfo';
 import HotelInfo from '../components/preference/HotelInfo';
 import EatingInfo from '../components/preference/EatingInfo';
@@ -46,7 +47,7 @@ export default function UserPersona() {
 
     return (
         <Flex>
-            <SideWall picture={blue} width="50%" position="fixed" top="0" left="0" bottom="0" />
+            <SideWall picture={voyage} width="50%" position="fixed" top="0" left="0" bottom="0" />
             <Box width="50%" position="relative">
                 {currentStep === steps.length - 1 ? (
                     <></>

@@ -57,7 +57,7 @@ function Sidebar() {
             left="0"
             flexDirection={"column"}
             justifyContent="space-between"
-        
+
         >
             <Box display="flex" flexDirection="column">
                 <IconOnlyButton onClick={onOpen} icon={<ArrowForwardIcon />} />
@@ -68,7 +68,7 @@ function Sidebar() {
                 <IconOnlyButton icon={<SearchIcon />} />
             </Box>
             <Box display="flex" flexDirection="column" mx={"auto"} mb={4}>
-                <Avatar w="30px" h="auto" mx="auto" bg={"blackAlpha.700"}/>
+                <Avatar w="30px" h="auto" mx="auto" bg={"blackAlpha.700"} />
                 <Text size="md" fontWeight={"500"}>Guest</Text>
             </Box>
 
