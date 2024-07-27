@@ -32,7 +32,7 @@ const DestinationDetails = ({ selectedItem, handleClose }) => {
     return (
         <Box
             flex="0 0 45%"
-            p={4}
+            p={"1.5rem"}
             ml="10"
             borderWidth="1px"
             borderRadius="md"
@@ -50,9 +50,6 @@ const DestinationDetails = ({ selectedItem, handleClose }) => {
                 right={2}
                 onClick={handleClose}
             />
-            <Heading as="h3" size="lg" mb={3}>
-                {selectedItem.name}
-            </Heading>
             <Image
                 src={selectedItem.photo}
                 alt={selectedItem.name}

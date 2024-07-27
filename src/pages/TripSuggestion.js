@@ -29,9 +29,6 @@ export default function TripSuggestion() {
                     </Flex>
                 </Flex>
             </Flex>
-            <Flex justifyContent="center">
-                <Category />
-            </Flex>
         </Flex>
     );
 }

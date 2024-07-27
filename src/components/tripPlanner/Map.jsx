@@ -87,6 +87,7 @@ const MapComponent = (props) => {
             ))}
         </GoogleMap>
     ) : <></>
+
 };
 
 export default MapComponent;
