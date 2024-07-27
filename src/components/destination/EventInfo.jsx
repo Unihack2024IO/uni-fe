@@ -1,5 +1,6 @@
 import { Box, Heading, Text, Image, Stack, HStack, Badge, Divider } from '@chakra-ui/react';
 import { MdEmail, MdPhone, MdAttachMoney } from 'react-icons/md';
+import Advisor from './Advisor.jsx';
 
 const EventInfo = ({ event }) => {
     if (!event) return null;
@@ -65,6 +66,8 @@ const EventInfo = ({ event }) => {
                     ))}
                 </Stack>
             </Box>
+            <Divider my={4} />
+            <Advisor event={event}/>
         </Box>
     );
 };
