@@ -3,9 +3,80 @@ import { MdLocationOn, MdEmail, MdPhone, MdRestaurantMenu } from 'react-icons/md
 import { CloseIcon } from '@chakra-ui/icons';
 import ScrollableContainer from '../common/ScrollBar';
 import Advisor from './Advisor.jsx';
+import Suggestor from './Suggestor.jsx';
 
 const AttractionInfo = ({ attraction, handleClose }) => {
     if (!attraction) return null;
+    const htmlString = `
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Khám phá Ẩm thực và Lưu trú gần Cầu Tình Yêu</title>
+</head>
+<body>
+
+<h1 style="font-family: Arial, sans-serif; color: #333; font-size: 32px;">Khám phá Ẩm thực và Lưu trú gần Cầu Tình Yêu</h1>
+
+<p style="font-family: Verdana, sans-serif; color: #555; font-size: 16px;">
+  Chào mừng bạn đến với Cầu Tình Yêu, một trong những địa điểm lãng mạn nhất Đà Nẵng! Sau khi đã cùng một nửa của mình dạo bước và lưu lại những khoảnh khắc đáng nhớ tại đây, đừng quên khám phá những địa điểm ẩm thực và khách sạn tuyệt vời gần khu vực này nhé.
+</p>
+
+<h2 style="font-family: Arial, sans-serif; color: #444; font-size: 24px;">Khách sạn:</h2>
+
+<div style="display: flex; margin-bottom: 20px;">
+  <div style="margin-right: 20px;">
+    <a href="https://www.traveloka.com/vi-vn/hotel/vietnam/sunrise-hotel-danang-3000010026947?affid=123123" target="_blank">
+      <img src="https://pix8.agoda.net/hotelImages/162/1621516/1621516_16111010010048592106.jpg?ca=6&ce=1&s=1024x" alt="Sunrise Hotel DaNang" style="width: 200px;">
+    </a>
+  </div>
+  <div style="font-family: Verdana, sans-serif; color: #555; font-size: 14px;">
+    <a href="https://www.traveloka.com/vi-vn/hotel/vietnam/sunrise-hotel-danang-3000010026947?affid=123123" target="_blank" style="color: blue;">
+      <h3 style="font-size: 18px;">Sunrise Hotel DaNang</h3>
+    </a>
+    <p style="color: red;">
+      <strong>Địa chỉ:</strong> 18 An Thượng 1, Phường Mỹ An, Mỹ An, Ngũ Hành Sơn, Đà Nẵng
+    </p>
+    <p>
+      Sunrise Hotel DaNang là một địa điểm nghỉ dưỡng lý tưởng tại trung tâm thành phố Đà Nẵng. Với phòng ốc sang trọng, tiện nghi hiện đại, và dịch vụ chuyên nghiệp, khách sạn mang đến cho du khách một trải nghiệm nghỉ ngơi tuyệt vời.
+    </p>
+    <p>
+      <strong>Khoảng giá:</strong> 500.000VND - 5.000.000VND
+    </p> 
+  </div>
+</div>
+
+<h2 style="font-family: Arial, sans-serif; color: #444; font-size: 24px;">Nhà hàng:</h2>
+
+<div style="display: flex; margin-bottom: 20px;">
+  <div style="margin-right: 20px;">
+    <a href="https://www.foody.vn/da-nang/gang-yu-hotpot?affid=123123" target="_blank">
+      <img src="https://pasgo.vn/Upload/anh-chi-tiet/nha-hang-gang-yu-hotpot-duong-yen-bai-8-normal-1867171749436.webp" alt="Gang Yu Hotpot - Đường Yên Bái" style="width: 200px;">
+    </a>
+  </div>
+  <div style="font-family: Verdana, sans-serif; color: #555; font-size: 14px;">
+    <a href="https://www.foody.vn/da-nang/gang-yu-hotpot?affid=123123" target="_blank" style="color: blue;">
+      <h3 style="font-size: 18px;">Gang Yu Hotpot - Đường Yên Bái</h3>
+    </a>
+    <p style="color: red;">
+      <strong>Địa chỉ:</strong> Số 87 đường Yên Bái, Phường Phước Ninh, Quận Hải Châu, Đà Nẵng
+    </p>
+    <p>
+      Gang Yu Hotpot mang đến cho khách hàng những trải nghiệm ẩm thực đậm chất Trung Hoa với các món lẩu thơm ngon, đa dạng. Không gian hiện đại, sang trọng cùng với dịch vụ tận tình sẽ làm hài lòng mọi khách hàng. 
+    </p>
+    <p>
+      <strong>Khoảng giá:</strong> 150.000VND - 250.000VND
+    </p> 
+  </div>
+</div>  
+
+<p style="font-family: Verdana, sans-serif; color: #555; font-size: 16px;">Hi vọng những gợi ý này sẽ giúp bạn có một chuyến du lịch đáng nhớ tại Cầu Tình Yêu!</p>
+
+</body>
+</html>
+
+
+ `;
+    
 
     return (
         <Box
@@ -245,7 +316,11 @@ const AttractionInfo = ({ attraction, handleClose }) => {
                                 <Advisor information={attraction} />
                             </TabPanel>
                             <TabPanel>
-                                Hahah
+                                <div>
+                                <Suggestor information={attraction} />
+                                <Box dangerouslySetInnerHTML={{ __html: htmlString }} />
+                                    
+                                </div>
                             </TabPanel>
                         </TabPanels>
                     </Tabs>
