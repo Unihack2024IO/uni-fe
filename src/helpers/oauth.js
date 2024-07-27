@@ -25,6 +25,7 @@ export const signIn = async () => {
         },
       }
     );
+    localStorage.setItem("user_id", data.data[0].id);
     window.location.href = "/userpersona";
   } catch (error) {
     console.log("error", error);
