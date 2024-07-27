@@ -24,8 +24,8 @@ const TripItem = ({ item, onRemove }) => {
                             src={item.photo}
                             alt={item.Name}
                             objectFit="cover"
-                            borderRadius="full"
-                            boxSize="50px"
+                            borderRadius="10"
+                            boxSize="70px"
                             mr={4}
                         />
                         <Box>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Box, List, ListItem, ListIcon, Flex, IconButton } from '@chakra-ui/react';
-import { MdCheckCircle, MdDelete } from 'react-icons/md';
+import { Box, List, ListItem, ListIcon, Flex, Stack, Divider, Text } from '@chakra-ui/react';
+import { MdCheckCircle } from 'react-icons/md';
 import TripItem from './TripItem';
 import danang from '../../assets/images/places/danangcity.jpg';
 import hcm from '../../assets/images/places/hcmcity.jpg';
@@ -9,7 +9,7 @@ import hue from '../../assets/images/places/huecity.jpg';
 import hagiang from '../../assets/images/places/hagiangcity.jpg';
 import DividerComponent from '../common/Divider';
 import ScrollableContainer from '../../components/common/ScrollBar';
-import DateAndTime from '../common/DateAndTime';
+import GeneralInform from '../common/GeneralInform';
 const TripPlan = () => {
     const initialArray = [
         { id: 1, photo: danang, Name: 'Cau ban tay', Location: 'Son tra, Da Nang', rating: 4.7, description: "With broad beaches, fantastic street food, the fabled Hai Van Pass, and a growing collection of cafes, restaurants, and bars, it’s no wonder the residents of Da Nang sport some of the broadest smiles in the country. The warm sands of My Khe Beach sweep south from the mountainous Son Tra Peninsula. Da Nang hosts some of Vietnam's top luxury resorts, but much of the beach still belongs to the people who make it their playground, gym, and source of livelihood." },
@@ -27,33 +27,48 @@ const TripPlan = () => {
 
     return (
         <Flex direction='column' width='100%'>
-            <DateAndTime />
+            <GeneralInform />
             <ScrollableContainer >
-                <Box position='relative' padding='10'>
+                <Box position='relative' h="100vh">
                     <DividerComponent content='Day 1' />
                     <List spacing={5}>
                         {tripItems.map(item => (
-                            <ListItem key={item.id}>
-                                <Flex alignItems="center">
-                                    <ListIcon as={MdCheckCircle} color='green.500' boxSize={6} />
-                                    <Box flex="1">
-                                        <TripItem item={item} onRemove={() => removeItem(item.id)} />
-                                    </Box>
-                                </Flex>
-                            </ListItem>
+                            <Box>
+                                <ListItem key={item.id}>
+                                    <Flex alignItems="center">
+                                        <Box flex="1">
+                                            <TripItem item={item} onRemove={() => removeItem(item.id)} />
+                                        </Box>
+                                    </Flex>
+                                </ListItem>
+                                <Stack direction='row' h='30px' p={4}>
+                                    <Divider
+                                        orientation='vertical'
+                                        borderColor='gray.400'
+                                        borderStyle='dashed'
+                                        height='30px'
+                                    />
+                                    <Text>5 km</Text>
+                                </Stack>
+                            </Box>
                         ))}
                     </List>
                     <DividerComponent content='Day 2' />
                     <List spacing={5}>
                         {tripItems.map(item => (
-                            <ListItem key={item.id}>
-                                <Flex alignItems="center">
-                                    <ListIcon as={MdCheckCircle} color='green.500' boxSize={6} />
-                                    <Box flex="1">
-                                        <TripItem item={item} onRemove={() => removeItem(item.id)} />
-                                    </Box>
-                                </Flex>
-                            </ListItem>
+                            <Box>
+                                <ListItem key={item.id}>
+                                    <Flex alignItems="center">
+                                        <Box flex="1">
+                                            <TripItem item={item} onRemove={() => removeItem(item.id)} />
+                                        </Box>
+                                    </Flex>
+                                </ListItem>
+                                <Stack direction='row' h='30px' p={4}>
+                                    <Divider orientation='vertical' />
+                                    <Text>5 km</Text>
+                                </Stack>
+                            </Box>
                         ))}
                     </List>
                 </Box>

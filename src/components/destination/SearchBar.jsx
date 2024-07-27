@@ -9,7 +9,7 @@ const SearchBar = () => {
             height="7vh"
             ml="50"
         >
-            <InputLeftElement pointerEvents="none">
+            <InputLeftElement pointerEvents="none" pt="3">
                 <SearchIcon color="gray.300" />
             </InputLeftElement>
             <Input
@@ -22,7 +22,7 @@ const SearchBar = () => {
                 boxShadow="0px 5px 6px rgba(0, 0, 0, 0.1)"
                 _placeholder={{ color: 'gray.500' }}
             />
-        </InputGroup>
+        </InputGroup >
     );
 };
 
