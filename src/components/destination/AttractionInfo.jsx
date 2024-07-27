@@ -1,7 +1,7 @@
 import {Tabs, TabList, TabPanels, Tab, TabPanel, Image,
     Text, Box, Flex, Heading, Stack, HStack, Badge, Divider, IconButton } from '@chakra-ui/react';
 
-import { MdLocationOn, MdEmail, MdPhone, MdRestaurantMenu } from 'react-icons/md';
+import { MdLocationOn, MdEmail, MdPhone, MdAttachMoney } from 'react-icons/md';
 import { CloseIcon } from '@chakra-ui/icons';
 import ScrollableContainer from '../common/ScrollBar';
 import Advisor from './Advisor.jsx';
@@ -9,11 +9,11 @@ import Advisor from './Advisor.jsx';
 
 const  AttractionInfo = ({ attraction, handleClose }) => {
     if (!attraction) return null;
+    console.log(attraction)
     return (
         <Box
             flex="0 0 45%"
-            p={"1.5rem"}
-            ml="10"
+            p={"1.5rem 1.5rem 1.5rem 2rem"}
             borderWidth="1px"
             borderRadius="md"
             boxShadow="md"
@@ -70,7 +70,9 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                         <Text fontSize="md" color="gray.700">
 
-                            Latitude: {attraction.location.latitude}, Longitude: {attraction.location.longitude}
+                            {/* Latitude: {attraction.destination.location.latitude}, Longitude: {attraction.destination.location.longitude} */}
+                            {attraction.location.address}
+
 
                         </Text>
 
@@ -132,11 +134,11 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                 )}
 
-                {attraction.priceRange && (
+                {attraction.destination.priceRange && (
 
                     <HStack spacing={2}>
 
-                        <MdRestaurantMenu size="20px" />
+                        <MdAttachMoney size="20px" />
 
                         <Text fontSize="md" fontWeight="bold">
 
@@ -146,7 +148,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                         <Text fontSize="md" color="gray.700">
 
-                            {attraction.priceRange}
+                            {attraction.destination.priceRange}
 
                         </Text>
 
@@ -156,7 +158,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
             </Stack>
 
-            {attraction.idealWeather && (
+            {attraction.destination.idealWeather && (
 
                 <>
 
@@ -172,25 +174,25 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                         <Text fontSize="md" color="gray.700">
 
-                            Temperature: {attraction.idealWeather.averageTemperature}
+                            Temperature: {attraction.destination.idealWeather.averageTemperature}
 
                         </Text>
 
                         <Text fontSize="md" color="gray.700">
 
-                            Condition: {attraction.idealWeather.condition}
+                            Condition: {attraction.destination.idealWeather.condition}
 
                         </Text>
 
                         <Text fontSize="md" color="gray.700">
 
-                            Humidity: {attraction.idealWeather.humidity}
+                            Humidity: {attraction.destination.idealWeather.humidity}
 
                         </Text>
 
                         <Text fontSize="md" color="gray.700">
 
-                            Wind: {attraction.idealWeather.wind}
+                            Wind: {attraction.destination.idealWeather.wind}
 
                         </Text>
 
@@ -200,7 +202,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
             )}
 
-            {attraction.attractions && attraction.attractions.length > 0 && (
+            {attraction.activities && attraction.activities.length > 0 && (
 
                 <>
 
@@ -210,17 +212,17 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                         <Heading as="h3" size="md" mb={2}>
 
-                            Attractions:
+                            Activities:
 
                         </Heading>
 
                         <Stack spacing={2}>
 
-                            {attraction.attractions.map((attraction, index) => (
+                            {attraction.activities.map((activity, index) => (
 
                                 <Badge key={index} colorScheme="teal">
 
-                                    {attraction}
+                                    {activity}
 
                                 </Badge>
 
@@ -234,7 +236,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
             )}
 
-            {attraction.cuisine && attraction.cuisine.length > 0 && (
+            {attraction.destination.cuisine && attraction.destination.cuisine.length > 0 && (
 
                 <Box mt={4}>
 
@@ -246,7 +248,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                     <Stack spacing={2}>
 
-                        {attraction.cuisine.map((dish, index) => (
+                        {attraction.destination.cuisine.map((dish, index) => (
 
                             <Badge key={index} colorScheme="teal">
 
@@ -262,7 +264,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
             )}
 
-            {attraction.specialties && attraction.specialties.length > 0 && (
+            {attraction.destination.specialties && attraction.destination.specialties.length > 0 && (
 
                 <Box mt={4}>
 
@@ -274,7 +276,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                     <Stack spacing={2}>
 
-                        {attraction.specialties.map((specialty, index) => (
+                        {attraction.destination.specialties.map((specialty, index) => (
 
                             <Badge key={index} colorScheme="teal">
 
@@ -290,19 +292,19 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
             )}
 
-            {attraction.recreationalActivities && attraction.recreationalActivities.length > 0 && (
+            {/* {attraction.destination.recreationalActivities && attraction.destination.recreationalActivities.length > 0 && (
 
                 <Box mt={4}>
 
                     <Heading as="h3" size="md" mb={2}>
 
-                        Activities:
+                        Văn hóa
 
                     </Heading>
 
                     <Stack spacing={2}>
 
-                        {attraction.recreationalActivities.map((activity, index) => (
+                        {attraction.destination.recreationalActivities.map((activity, index) => (
 
                             <Badge key={index} colorScheme="teal">
 
@@ -316,37 +318,10 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                 </Box>
 
-            )}
+            )} */}
 
-            {attraction.localCultureAndCustoms && attraction.localCultureAndCustoms.etiquette && attraction.localCultureAndCustoms.etiquette.length > 0 && (
 
-                <Box mt={4}>
-
-                    <Heading as="h3" size="md" mb={2}>
-
-                        Etiquette:
-
-                    </Heading>
-
-                    <Stack spacing={2}>
-
-                        {attraction.localCultureAndCustoms.etiquette.map((rule, index) => (
-
-                            <Badge key={index} colorScheme="teal">
-
-                                {rule}
-
-                            </Badge>
-
-                        ))}
-
-                    </Stack>
-
-                </Box>
-
-            )}
-
-            {attraction.traditionalFestivals && attraction.traditionalFestivals.length > 0 && (
+            {/* {attraction.destination.traditionalFestivals && attraction.destination.traditionalFestivals.length > 0 && (
 
                 <Box mt={4}>
 
@@ -358,7 +333,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                     <Stack spacing={2}>
 
-                        {attraction.traditionalFestivals.map((festival, index) => (
+                        {attraction.destination.traditionalFestivals.map((festival, index) => (
 
                             <Badge key={index} colorScheme="teal">
 
@@ -372,9 +347,9 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                 </Box>
 
-            )}
+            )} */}
 
-            {attraction.safetyAndSecurity && (
+            {/* {attraction.safetyAndSecurity && (
 
                 <Box mt={4}>
 
@@ -452,9 +427,9 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                 </Box>
 
-            )}
+            )} */}
 
-            {attraction.transportation && (
+            {attraction.destination.transportation && (
 
                 <Box mt={4}>
 
@@ -464,30 +439,23 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                     </Heading>
 
-                    {attraction.transportation.convenience && (
+                    {attraction.destination.transportation.convenience && (
 
                         <Text fontSize="md" color="gray.700">
 
-                            Convenience: {attraction.transportation.convenience}
+                            Convenience: {attraction.destination.transportation.convenience}
 
                         </Text>
 
                     )}
 
-                    {attraction.transportation.modes && attraction.transportation.modes.length > 0 && (
+                    {attraction.destination.transportation.modes && attraction.destination.transportation.modes.length > 0 && (
 
                         <Stack spacing={2} mt={2}>
-
-                            {attraction.transportation.modes.map((mode, index) => (
-
-                                <Badge key={index} colorScheme="teal">
-
-                                    {mode}
-
-                                </Badge>
-
-                            ))}
-
+                            <Text>
+                                Phương tiện: 
+                                {attraction.destination.transportation.modes.join(",")}
+                            </Text>
                         </Stack>
 
                     )}
@@ -496,7 +464,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
             )}
 
-            {attraction.popularTimes && attraction.popularTimes.length > 0 && (
+            {attraction.destination.popularTimes && attraction.destination.popularTimes.length > 0 && (
 
                 <Box mt={4}>
 
@@ -508,7 +476,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
 
                     <Stack spacing={2}>
 
-                        {attraction.popularTimes.map((time, index) => (
+                        {attraction.destination.popularTimes.map((time, index) => (
 
                             <Badge key={index} colorScheme="teal">
 
@@ -535,7 +503,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
                     </TabList>
                 </Flex>
                 <TabPanels>
-                    <TabPanel>
+                    <TabPanel padding={0}>
                         < Advisor />
                     </TabPanel>
                     <TabPanel>

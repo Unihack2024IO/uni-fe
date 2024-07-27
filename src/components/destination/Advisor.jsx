@@ -88,7 +88,7 @@ const Advisor = ({ event }) => {
     }
     return (
         <Box
-            mx="auto"
+            padding="0"
         >  
             <Heading size='lg' marginBottom={"1.5rem"}>
                 Quyết định: {
