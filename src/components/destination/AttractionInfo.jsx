@@ -503,7 +503,8 @@ const  AttractionInfo = ({ attraction }) => {
 
                 </Box>
             )}
-
+            <Divider my={4} />
+            <Advisor/>
         </Box>
 
     );

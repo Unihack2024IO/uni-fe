@@ -5,6 +5,8 @@ import ScrollableContainer from '../common/ScrollBar';
 import Events from './Events';
 import Attractions from './Attractions';
 import EventInfo from './EventInfo';
+import AttractionInfo from './AttractionInfo';
+import Advisor from './Advisor';
 
 const DestinationDetails = ({ selectedItem, handleClose }) => {
     if (!selectedItem) return null;
@@ -61,7 +63,7 @@ const DestinationDetails = ({ selectedItem, handleClose }) => {
                 height="200px"
             />
             <ScrollableContainer>
-                <EventInfo item={selectedItem} />
+                <AttractionInfo attraction={selectedItem} />
             </ScrollableContainer>
         </Box>
     );
