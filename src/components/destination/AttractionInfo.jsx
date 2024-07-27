@@ -71,7 +71,7 @@ const  AttractionInfo = ({ attraction, handleClose }) => {
                         <Text fontSize="md" color="gray.700">
 
                             {/* Latitude: {attraction.destination.location.latitude}, Longitude: {attraction.destination.location.longitude} */}
-                            {attraction.location.address}
+                            {attraction.destination.location.address}
 
 
                         </Text>
