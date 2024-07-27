@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Input,
-    Box,
     Flex,
     Text,
-    useStyleConfig,
     NumberInput,
     NumberInputField,
     NumberInputStepper,
     NumberIncrementStepper,
-    NumberDecrementStepper
+    NumberDecrementStepper,
+    Input,
+    Box,
+    useBreakpointValue,
+    useStyleConfig,
+    
 } from '@chakra-ui/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -32,9 +34,9 @@ const GeneralInform = () => {
 
     return (
         <Box>
-            <Flex gap={"1rem"} alignItems={"center"}>
-                <Flex flexDirection={"row"} alignItems={"center"} gap={"0.5rem"}>
-                    <Text fontSize="3xl" fontWeight="normal" transform={"scaleX(-1)"}>🚶‍♀️</Text>
+            <Flex gap="1rem" alignItems="center">
+                <Flex flexDirection="row" alignItems="center" gap="0.5rem">
+                    <Text fontSize="3xl" fontWeight="normal" transform="scaleX(-1)">🚶‍♀️</Text>
                     <DatePicker
                         selected={selectedDate}
                         onChange={(date) => {
@@ -50,7 +52,7 @@ const GeneralInform = () => {
                                 sx={inputStyles}
                                 w="40"
                                 border="none"
-                                borderBottom={`2px solid`}
+                                borderBottom="2px solid"
                                 borderRadius={0}
                             />
                         }

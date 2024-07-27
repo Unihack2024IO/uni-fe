@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer, Marker } from '@react-google-maps/api';
 import pin from '../../assets/images/walls/pin.png';
+
 const containerStyle = {
     width: '100%',
     height: '80vh',
@@ -63,8 +64,16 @@ const Map = ({ locations }) => {
     }, [locations]);
 
     return (
-        <LoadScript googleMapsApiKey="AIzaSyAaP2POkvP_fgB3OsfjVJhuQ310zIrbjdE">
-            <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12} options={{ styles: mapStyles }}>
+        <LoadScript
+            googleMapsApiKey="AIzaSyAaP2POkvP_fgB3OsfjVJhuQ310zIrbjdE"
+            loadingElement={<div>Loading...</div>}
+        >
+            <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={12}
+                options={{ styles: mapStyles }}
+            >
                 {directionsResponse && (
                     <DirectionsRenderer
                         options={{
@@ -81,7 +90,7 @@ const Map = ({ locations }) => {
                     <Marker
                         key={index}
                         position={location}
-                        image={pin}
+                        icon={pin}
                     />
                 ))}
             </GoogleMap>

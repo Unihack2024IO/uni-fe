@@ -1,12 +1,15 @@
 import { Flex } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import DestinationCard from './DestinationCard';
-import AttractionInfo from './AttractionInfo';
+import DestinationDetails from './DestinationDetails';
+import EventInfo from './EventInfo';
 import ScrollableContainer from '../common/ScrollBar';
 import axios from 'axios';
 
-const attractionFilter = (attractionList) => {
-    return attractionList.map((item) => ({
+// Event same activity
+
+const activityFilter = (activityList) => {
+    return activityList.map((item) => ({
         id: item.id,
         destinationId: item.destinationId,
         photo: item.imageUrl,
@@ -20,12 +23,11 @@ const attractionFilter = (attractionList) => {
         activities: item.activities,
         type : item.type,
         time : item.time,
-        destination: item.destination,
+        
     }));
 };
 
-const getAttractionList = async () => {
-    // const API = process.env.REACT_APP_HOST + "/response/activities";
+const getActivityList = async () => {
     const API = process.env.REACT_APP_HOST + "/activities";
     try {
         const response = await axios.get(API);
@@ -36,13 +38,13 @@ const getAttractionList = async () => {
     }
 };
 
-const AttractionList = () => {
+const EventList = () => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [data, setData] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const attractionList = await getAttractionList();
-            const filteredData = attractionFilter(attractionList);
+            const activityList = await getActivityList();
+            const filteredData = activityFilter(activityList);
             setData(filteredData);
         };
         fetchData();
@@ -64,9 +66,9 @@ const AttractionList = () => {
                     ))}
                 </Flex>
             </ScrollableContainer>
-            {selectedItem && <AttractionInfo  attraction={selectedItem} handleClose={handleClose} />}
+            {selectedItem && <EventInfo event={selectedItem} handleClose={handleClose} />}
         </Flex>
     );
 };
 
-export default AttractionList;
+export default EventList;

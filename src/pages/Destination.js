@@ -11,7 +11,7 @@ export default function ExplorePage() {
             <Box width='100%' position="relative" p={4}>
                 <Flex justifyContent="space-between" alignItems="center" mt={4}>
                     <Box></Box>
-                    <GeneralInform date={4} time={3} />
+                    <GeneralInform />
                     <TripRecommendation
                         number={3}
                         position="absolute"
