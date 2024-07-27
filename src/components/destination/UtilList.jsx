@@ -35,7 +35,7 @@ const getActivityList = async () => {
     }
 };
 
-const DestinationList = () => {
+const UtilList = () => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -68,4 +68,4 @@ const DestinationList = () => {
     );
 };
 
-export default DestinationList;
+export default UtilList;

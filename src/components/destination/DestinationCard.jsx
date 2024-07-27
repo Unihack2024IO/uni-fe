@@ -5,8 +5,8 @@ import { StarIcon } from '@chakra-ui/icons';
 const DestinationCard = ({ item, setSelectedItem, isSelected }) => {
     return (
         <Box
-            width="43vh"
-            height="60vh"
+            width="19.5vw"
+            height="50vh"
             cursor="pointer"
             onClick={() => setSelectedItem(isSelected ? null : item)}
         >
