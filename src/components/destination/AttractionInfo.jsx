@@ -323,7 +323,7 @@ const AttractionInfo = ({ attraction }) => {
         </Box>
       )}
       <Divider my={4} />
-      <Advisor />
+      <Advisor information = {attraction} />
     </Box>
   );
 };
