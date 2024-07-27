@@ -2,8 +2,14 @@ import React, { useState, useEffect } from 'react';
 import {
     Input,
     Box,
-    useBreakpointValue,
-    useStyleConfig
+    Flex,
+    Text,
+    useStyleConfig,
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper
 } from '@chakra-ui/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -50,15 +56,13 @@ const GeneralInform = () => {
                         }
                     />
                 </Flex>
-                <div>
-                    <NumberInput size='md' maxW={24} defaultValue={3} min={1} max={10}>
-                        <NumberInputField />
-                        <NumberInputStepper>
-                            <NumberIncrementStepper />
-                            <NumberDecrementStepper />
-                        </NumberInputStepper>
-                    </NumberInput>
-                </div>
+                <NumberInput size='md' maxW={24} defaultValue={3} min={1} max={10}>
+                    <NumberInputField />
+                    <NumberInputStepper>
+                        <NumberIncrementStepper />
+                        <NumberDecrementStepper />
+                    </NumberInputStepper>
+                </NumberInput>
             </Flex>
         </Box>
     );
