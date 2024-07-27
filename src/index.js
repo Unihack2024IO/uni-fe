@@ -9,7 +9,7 @@ import Destination from "./pages/Destination";
 import UserPersona from "./pages/UserPersona";
 import TripSuggestion from "./pages/TripSuggestion";
 import Advisor from "./components/destination/Advisor";
-import SignIn from "./pages/SignIn";
+import "./index.css";
 // Your Google Client ID
 const CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID";
 

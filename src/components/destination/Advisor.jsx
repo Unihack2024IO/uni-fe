@@ -1,6 +1,7 @@
 import { Box, Heading, Text, Image, Stack, HStack, Badge, Divider, Flex } from '@chakra-ui/react';
 import { MdEmail, MdPhone, MdAttachMoney } from 'react-icons/md';
 import { AddIcon, WarningIcon, RepeatClockIcon, CheckIcon, TriangleDownIcon } from '@chakra-ui/icons';
+import HappyIcon from '../../assets/images/icon/happy.png';
 
 const Advisor = ({ event }) => {
     // if (!event) return null;
@@ -89,21 +90,20 @@ const Advisor = ({ event }) => {
     return (
         <Box
             mx="auto"
-            maxWidth={"50%"}
             mt={4}
-            border={"1px solid #e2e8f0"}
-            boxShadow={"md"}
-            borderRadius={"md"}
-            p="1.5rem"
         >  
-            <Heading size='md' marginBottom={"1rem"}>
-                Quyết định: {event.recommendation.shouldVisit.decision}
+            <Heading size='lg' marginBottom={"1.5rem"}>
+                Quyết định: {
+                  event.recommendation.shouldVisit.decision === "yes" ? "😍" 
+                  : event.recommendation.shouldVisit.decision === "no" ? "😞" 
+                  : "🤔"
+                }
             </Heading>
             <Flex gap="0.5rem">
-                <Heading size='sm' color="gray.700" width={"70px"}>
+                <Heading size='sm' color="gray.700" width={"80px"}>
                     Lí do:
                 </Heading>
-                <Text fontSize="md" color="gray.600" mb={4}>
+                <Text fontSize="md" color="gray.600" mb={2}>
                     {event.recommendation.shouldVisit.reasons.pro.map((reason, index) => (
                         <Text key={index} fontSize="md" color="gray.600" mb={2}>
                             &#8226; {reason}
@@ -123,7 +123,7 @@ const Advisor = ({ event }) => {
             <Text fontSize="md" color="gray.600" mb={4} ml={"1rem"}>
                 {event.preparation.items.map((item, index) => (
                     <Text key={index} fontSize="md" color="gray.600" mb={2}>
-                        <AddIcon boxSize={3} mr={"0.5rem"} /> {item.item} - {item.reason}
+                        <AddIcon boxSize={3} mr={"0.5rem"} color="green.500"/> {item.item} - {item.reason}
                     </Text>
                 ))}
             </Text>

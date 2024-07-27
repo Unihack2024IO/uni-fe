@@ -9,7 +9,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 
-const DateAndTime = () => {
+const GeneralInform = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [buttonLabel, setButtonLabel] = useState('');
 
@@ -50,4 +50,4 @@ const DateAndTime = () => {
     );
 };
 
-export default DateAndTime;
+export default GeneralInform;

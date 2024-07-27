@@ -14,10 +14,9 @@ import {
   MdPhone,
   MdRestaurantMenu,
 } from "react-icons/md";
+import Advisor from "./Advisor.jsx";
 
 const AttractionInfo = ({ attraction }) => {
-  console.log("a", attraction);
-
   if (!attraction) return null;
 
   return (
@@ -323,6 +322,8 @@ const AttractionInfo = ({ attraction }) => {
           </Stack>
         </Box>
       )}
+      <Divider my={4} />
+      <Advisor />
     </Box>
   );
 };

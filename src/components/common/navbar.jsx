@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Link as RouterLink,
   Box,
@@ -11,6 +11,7 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import theme from "../../theme";
 import { signIn } from "../../helpers/oauth";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
   return (

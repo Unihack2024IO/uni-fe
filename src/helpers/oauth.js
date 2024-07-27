@@ -1,9 +1,9 @@
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { authFirebase } from "../config/firebaseConfig";
 import axios from "axios";
+import { redirect } from "react-router-dom";
 
 const provider = new GoogleAuthProvider();
-
 export const signIn = async () => {
   try {
     const result = await signInWithPopup(authFirebase, provider);
@@ -17,6 +17,7 @@ export const signIn = async () => {
         email: user.email,
         name: user.displayName,
         phone: user.phoneNumber,
+        profilePicture: user.photoURL,
       },
       {
         headers: {
@@ -24,8 +25,7 @@ export const signIn = async () => {
         },
       }
     );
-
-    console.log(data);
+    window.location.href = "/userpersona";
   } catch (error) {
     console.log("error", error);
   }
