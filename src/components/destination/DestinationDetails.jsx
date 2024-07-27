@@ -4,6 +4,7 @@ import StarHalfIcon from '../common/StarHalfIcon';
 import ScrollableContainer from '../common/ScrollBar';
 import Events from './Events';
 import Attractions from './Attractions';
+import EventInfo from './EventInfo';
 
 const DestinationDetails = ({ selectedItem, handleClose }) => {
     if (!selectedItem) return null;
@@ -36,7 +37,7 @@ const DestinationDetails = ({ selectedItem, handleClose }) => {
             boxShadow="md"
             position="relative"
             bg="white"
-            overflow="hidden"
+            overflow="auto"
             height="120vh"
         >
             <IconButton
@@ -60,8 +61,7 @@ const DestinationDetails = ({ selectedItem, handleClose }) => {
                 height="200px"
             />
             <ScrollableContainer>
-                <Events item={selectedItem}/>
-                <Attractions item={selectedItem} />
+                <EventInfo item={selectedItem} />
             </ScrollableContainer>
         </Box>
     );
