@@ -2,7 +2,6 @@ import React from 'react';
 import { Text, Button, Flex } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-
 const TripRecommendation = ({ number }) => {
     return (
         <Flex align="center">

@@ -22,7 +22,7 @@ export default function TripSuggestion() {
                             <TripPlan />
                         </Box>
                         <Box width='50%' ml="10">
-                            <PlanMap plan={[{ lat: 37.7749, lng: -122.4194 }]} />
+                            <PlanMap />
                         </Box>
 
                     </Flex>
