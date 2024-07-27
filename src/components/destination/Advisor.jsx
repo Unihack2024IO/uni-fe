@@ -119,12 +119,10 @@ const Advisor = ({ information }) => {
       <Divider my={4} />
       <Heading size="sm" marginBottom="0.5rem">
         Thời gian lý tưởng:
-      </Heading>
-     
+      </Heading>     
       <Text fontSize="md" color="gray.600" mb={4}>
         {advisor?.ideal_time?.time}
       </Text>
-        
       <Divider my={4} />
       <Heading size="sm" marginBottom="0.5rem">
         Một số tips:

@@ -2,7 +2,7 @@ import React from 'react';
 import TabComponent from '../components/destination/Tabs';
 import Sidebar from '../components/common/Sidebar';
 import { Box, Flex, Tr } from '@chakra-ui/react';
-import PlanMap from '../components/tripPlanner/PlanMap';
+// import PlanMap from '../components/tripPlanner/PlanMap';
 import TripPlan from '../components/tripPlanner/TripPlan';
 import Display from '../components/tripPlanner/Display';
 import MenuComponent from '../components/common/Menu';
@@ -22,14 +22,11 @@ export default function TripSuggestion() {
                             <TripPlan />
                         </Box>
                         <Box width='50%' ml="10">
-                            <PlanMap />
+                            {/* <PlanMap /> */}
                         </Box>
 
                     </Flex>
                 </Flex>
-            </Flex>
-            <Flex justifyContent="center">
-                <Category />
             </Flex>
         </Flex>
     );

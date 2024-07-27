@@ -1,5 +1,8 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Text, Box, Flex } from '@chakra-ui/react';
-import DestinationList from './DestinationList';
+// import DestinationList from './DestinationList';
+import AttractionList from './AttractionList';
+import EventList from './EventList';
+import UtilList from './UtilList';
 import SearchBar from './SearchBar';
 
 const TabComponent = () => {
@@ -10,34 +13,28 @@ const TabComponent = () => {
 
             <Tabs variant='solid-rounded' colorScheme='black'>
                 <Flex justifyContent='left' margin='2vw 0'>
-                    <TabList>
-                        <Tab _selected={{ color: 'white', bg: 'black' }}>
+                    <TabList gap={"1rem"}>
+                        <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
                             Attractions
                         </Tab>
-                        <Tab _selected={{ color: 'white', bg: 'black' }}>
+                        <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
                             Events
                         </Tab>
-                        <Tab _selected={{ color: 'white', bg: 'black' }}>
-                            Restaurants
-                        </Tab>
-                        <Tab _selected={{ color: 'white', bg: 'black' }}>
-                            Stays
+                        <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
+                            Utilities
                         </Tab>
                     </TabList>
                     <SearchBar />
                 </Flex>
                 <TabPanels>
                     <TabPanel>
-                        < DestinationList />
+                        <AttractionList />
                     </TabPanel>
                     <TabPanel>
-                        < DestinationList />
+                        <EventList />
                     </TabPanel>
                     <TabPanel>
-                        < DestinationList />
-                    </TabPanel>
-                    <TabPanel>
-                        < DestinationList />
+                        <UtilList />
                     </TabPanel>
                 </TabPanels>
             </Tabs>

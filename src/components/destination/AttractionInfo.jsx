@@ -1,84 +1,55 @@
-import {
-  Box,
-  Heading,
-  Text,
-  Stack,
-  HStack,
-  Badge,
-  Divider,
-} from "@chakra-ui/react";
 
-import {
-  MdLocationOn,
-  MdEmail,
-  MdPhone,
-  MdRestaurantMenu,
-} from "react-icons/md";
-import Advisor from "./Advisor.jsx";
+import {Tabs, TabList, TabPanels, Tab, TabPanel, Image,
+    Text, Box, Flex, Heading, Stack, HStack, Badge, Divider, IconButton } from '@chakra-ui/react';
 
-const AttractionInfo = ({ attraction }) => {
-  if (!attraction) return null;
+import { MdLocationOn, MdEmail, MdPhone, MdRestaurantMenu } from 'react-icons/md';
+import { CloseIcon } from '@chakra-ui/icons';
+import ScrollableContainer from '../common/ScrollBar';
+import Advisor from './Advisor.jsx';
 
-  return (
-    <Box mt="4">
-      {attraction.name && (
-        <Heading as="h2" size="lg" mb={3}>
-          {attraction.name}
-        </Heading>
-      )}
 
-      {attraction.description && (
-        <Text fontSize="md" color="gray.600" mb={4}>
-          {attraction.description}
-        </Text>
-      )}
+const  AttractionInfo = ({ attraction, handleClose }) => {
+    if (!attraction) return null;
+    return (
+        <Box
+            flex="0 0 45%"
+            p={"1.5rem"}
+            ml="10"
+            borderWidth="1px"
+            borderRadius="md"
+            boxShadow="md"
+            position="relative"
+            bg="white"
+            overflow="auto"
+            height="120vh"
+        >
+            <IconButton
+                icon={<CloseIcon />}
+                aria-label="Close"
+                position="absolute"
+                top={2}
+                right={2}
+                onClick={handleClose}
+            />
+            <Heading as="h3" size="lg" mb={3}>
+                {attraction.name}
+            </Heading>
+            <Image
+                src={attraction.photo}
+                alt={attraction.name}
+                objectFit="cover"
+                borderRadius="md"
+                mb={4}
+                width="100%"
+                height="200px"
+            />
+            <ScrollableContainer>
+            <Box mt="4">
 
-      <Divider my={4} />
-
-      <Stack spacing={3}>
-        {attraction.location && (
-          <HStack spacing={2}>
-            <MdLocationOn size="20px" />
-
-            <Text fontSize="md" fontWeight="bold">
-              Location:
-            </Text>
-
-            <Text fontSize="md" color="gray.700">
-              Latitude: {attraction.location.latitude}, Longitude:{" "}
-              {attraction.location.longitude}
-            </Text>
-          </HStack>
-        )}
-
-        {attraction.contactInfo && (
-          <>
-            {attraction.contactInfo.email && (
-              <HStack spacing={2}>
-                <MdEmail size="20px" />
-
-                <Text fontSize="md" fontWeight="bold">
-                  Email:
+            {attraction.description && (
+                <Text fontSize="md" color="gray.600" mb={4}>
+                    {attraction.description}
                 </Text>
-
-                <Text fontSize="md" color="gray.700">
-                  {attraction.contactInfo.email}
-                </Text>
-              </HStack>
-            )}
-
-            {attraction.contactInfo.touristOffice && (
-              <HStack spacing={2}>
-                <MdPhone size="20px" />
-
-                <Text fontSize="md" fontWeight="bold">
-                  Tourist Office:
-                </Text>
-
-                <Text fontSize="md" color="gray.700">
-                  {attraction.contactInfo.touristOffice}
-                </Text>
-              </HStack>
             )}
           </>
         )}
@@ -304,28 +275,31 @@ const AttractionInfo = ({ attraction }) => {
                 ))}
               </Stack>
             )}
+            <Divider my={4} />
+            <Tabs variant='unstyled'>
+                <Flex justifyContent='left' margin='2vw 0'>
+                    <TabList gap={"1rem"}>
+                        <Tab _selected={{fontWeight: "500", borderBottom:"3px solid #000", p: "0rem 2rem" }}>
+                            Lời khuyên
+                        </Tab>
+                        <Tab _selected={{fontWeight: "500", borderBottom:"3px solid #000", p: "0rem 2rem" }}>
+                            Bạn có thể thích
+                        </Tab>
+                    </TabList>
+                </Flex>
+                <TabPanels>
+                    <TabPanel>
+                        < Advisor />
+                    </TabPanel>
+                    <TabPanel>
+                        Hahah
+                    </TabPanel>
+                </TabPanels>
+            </Tabs>
         </Box>
-      )}
-
-      {attraction.popularTimes && attraction.popularTimes.length > 0 && (
-        <Box mt={4}>
-          <Heading as="h3" size="md" mb={2}>
-            Popular Times:
-          </Heading>
-
-          <Stack spacing={2}>
-            {attraction.popularTimes.map((time, index) => (
-              <Badge key={index} colorScheme="teal">
-                {time}
-              </Badge>
-            ))}
-          </Stack>
-        </Box>
-      )}
-      <Divider my={4} />
-      <Advisor information = {attraction} />
-    </Box>
-  );
+            </ScrollableContainer>
+        </Box> 
+    );
 };
 
 export default AttractionInfo;

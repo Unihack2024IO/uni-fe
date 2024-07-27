@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { Flex, Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 
 const SearchBar = () => {
@@ -9,8 +9,8 @@ const SearchBar = () => {
             height="7vh"
             ml="50"
         >
-            <InputLeftElement pointerEvents="none" pt="3">
-                <SearchIcon color="gray.300" />
+            <InputLeftElement pointerEvents="none">
+                <SearchIcon mt={4} ml={"0.5rem"} mr={"0.5rem"} color="gray.300" />
             </InputLeftElement>
             <Input
                 width="70vh"

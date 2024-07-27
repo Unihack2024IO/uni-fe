@@ -44,24 +44,21 @@ const DestinationList = () => {
       const filteredData = activityFilter(activityList);
       setData(filteredData);
     };
-    fetchData();
-  }, []); // Empty dependency array to run only on mount
 
-  const handleClose = () => {
-    setSelectedItem(null);
-  };
-
-  return (
-    <Flex>
-      <ScrollableContainer>
-        <Flex wrap="wrap" justifyContent="space-between" height="120vh">
-          {data.map((item) => (
-            <DestinationCard
-              key={item.id}
-              item={item}
-              setSelectedItem={setSelectedItem}
-            />
-          ))}
+    return (
+        <Flex>
+            <ScrollableContainer>
+                <Flex wrap="wrap" justifyContent="space-between" height="120vh">
+                    {data.map((item) => (
+                        <DestinationCard
+                            key={item.id}
+                            item={item}
+                            setSelectedItem={setSelectedItem}
+                        />
+                    ))}
+                </Flex>
+            </ScrollableContainer>
+            {selectedItem && <DestinationDetails  selectedItem={selectedItem} handleClose={handleClose} />}
         </Flex>
       </ScrollableContainer>
       {selectedItem && (
