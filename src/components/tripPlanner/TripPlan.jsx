@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Box, List, ListItem, ListIcon, Flex, Stack, Divider, Text } from '@chakra-ui/react';
-import { MdCheckCircle } from 'react-icons/md';
-import TripItem from './TripItem';
+import { Box, List, ListItem, Flex, Stack, Divider, Text } from '@chakra-ui/react';
+import Stop from './Stop';
+import Activity from './Activity';
 import danang from '../../assets/images/places/danangcity.jpg';
 import hcm from '../../assets/images/places/hcmcity.jpg';
 import hanoi from '../../assets/images/places/hanoicity.jpg';
@@ -10,13 +10,97 @@ import hagiang from '../../assets/images/places/hagiangcity.jpg';
 import DividerComponent from '../common/Divider';
 import ScrollableContainer from '../../components/common/ScrollBar';
 import GeneralInform from '../common/GeneralInform';
+
 const TripPlan = () => {
     const initialArray = [
-        { id: 1, photo: danang, Name: 'Cau ban tay', Location: 'Son tra, Da Nang', rating: 4.7, description: "With broad beaches, fantastic street food, the fabled Hai Van Pass, and a growing collection of cafes, restaurants, and bars, it’s no wonder the residents of Da Nang sport some of the broadest smiles in the country. The warm sands of My Khe Beach sweep south from the mountainous Son Tra Peninsula. Da Nang hosts some of Vietnam's top luxury resorts, but much of the beach still belongs to the people who make it their playground, gym, and source of livelihood." },
-        { id: 2, photo: hanoi, Name: 'Hoan Kiem Lake', Location: 'Hoan Kiem, Hanoi', rating: 4.2, description: "Hoan Kiem Lake is a central feature of Hanoi. Its history is enriched by the legend of the ancient turtle that presented Emperor Le Loi with a magical sword to drive out the invading Chinese. The lake is now a favorite spot for locals and tourists to relax and take in the scenery." },
-        { id: 3, photo: hue, Name: 'Imperial City', Location: 'Hue, Thua Thien-Hue', rating: 4.6, description: "Hue's Imperial City is a vast complex of palaces, temples, walls, gates, and gardens, serving as the former imperial capital of Vietnam. It's a UNESCO World Heritage Site that offers a glimpse into the grandeur of Vietnam's feudal history." },
-        { id: 4, photo: hcm, Name: 'Notre-Dame Cathedral Basilica', Location: 'District 1, Ho Chi Minh City', rating: 4.5, description: "This iconic landmark in Ho Chi Minh City was constructed between 1863 and 1880 by French colonists. It's known for its neo-Romanesque architecture and the peaceful atmosphere it provides in the midst of the bustling city." },
-        { id: 5, photo: hagiang, Name: 'Ha Giang Loop', Location: 'Ha Giang Province', rating: 4.8, description: "The Ha Giang Loop is a stunning road trip through northern Vietnam's mountainous terrain. It's a popular adventure for motorbike enthusiasts and offers breathtaking views, vibrant cultures, and a sense of unspoiled beauty." }
+        {
+            "id": 6,
+            "type": "stop",
+            "name": "Khách Sạn Mường Thanh Luxury",
+            "time": "Day 1",
+            "duration": "15:00 - Day 3: 11:00",
+            "activity": "Nhận phòng tại khách sạn",
+            "reason": "Khách sạn sang trọng với dịch vụ hàng đầu và vị trí trung tâm gần các điểm tham quan nổi tiếng.",
+            "imageUrl": "muong_thanh_luxury.jpg",
+            "priceRange": "2.000.000VND-6.000.000VND"
+        },
+        {
+            "id": 7,
+            "type": "activity",
+            "name": "Tham quan phố cổ Hội An",
+            "time": "Day 3",
+            "duration": "09:00-18:00",
+            "activity": "Tham quan",
+            "reason": "Khám phá nét đẹp cổ kính và văn hóa đa dạng của phố cổ Hội An, một di sản văn hóa thế giới.",
+            "imageUrl": "https://example.com/pho_co_hoi_an.jpg",
+            "priceRange": "50.000VND-200.000VND"
+        },
+        {
+            "id": 8,
+            "type": "stop",
+            "name": "Vinpearl Resort & Spa Nha Trang",
+            "time": "Day 4",
+            "duration": "15:00 - Day 7: 11:00",
+            "activity": "Nhận phòng tại khách sạn",
+            "reason": "Khu nghỉ dưỡng sang trọng với bãi biển riêng và các tiện nghi cao cấp, lý tưởng cho kỳ nghỉ dưỡng.",
+            "imageUrl": "vinpearl_nha_trang.jpg",
+            "priceRange": "3.000.000VND-8.000.000VND"
+        },
+        {
+            "id": 9,
+            "type": "stop",
+            "name": "Pullman Vũng Tàu",
+            "time": "Day 7",
+            "duration": "14:00 - Day 9: 11:00",
+            "activity": "Nhận phòng tại khách sạn",
+            "reason": "Khách sạn hiện đại với tầm nhìn ra biển, dịch vụ tuyệt vời và vị trí thuận tiện.",
+            "imageUrl": "pullman_vung_tau.jpg",
+            "priceRange": "2.500.000VND-7.000.000VND"
+        },
+        {
+            "id": 10,
+            "type": "stop",
+            "name": "Fusion Resort Phú Quốc",
+            "time": "Day 10",
+            "duration": "15:00 - Day 13: 11:00",
+            "activity": "Nhận phòng tại khu nghỉ dưỡng",
+            "reason": "Khu nghỉ dưỡng cao cấp với các biệt thự ven biển và dịch vụ spa miễn phí.",
+            "imageUrl": "fusion_phu_quoc.jpg",
+            "priceRange": "4.000.000VND-10.000.000VND"
+        },
+        {
+            "id": 11,
+            "type": "activity",
+            "name": "Khám phá hang Sơn Đoòng",
+            "time": "Day 5",
+            "duration": "08:00-17:00",
+            "activity": "Thám hiểm",
+            "reason": "Hang động lớn nhất thế giới với hệ thống đá vôi kỳ vĩ và hệ sinh thái độc đáo.",
+            "imageUrl": "https://example.com/hang_son_doong.jpg",
+            "priceRange": "3.000.000VND-5.000.000VND"
+        },
+        {
+            "id": 12,
+            "type": "activity",
+            "name": "Chèo thuyền trên sông Thu Bồn",
+            "time": "Day 6",
+            "duration": "10:00-12:00",
+            "activity": "Chèo thuyền",
+            "reason": "Trải nghiệm chèo thuyền ngắm cảnh đẹp dọc sông Thu Bồn và thăm các làng nghề truyền thống.",
+            "imageUrl": "https://example.com/song_thu_bon.jpg",
+            "priceRange": "200.000VND-500.000VND"
+        },
+        {
+            "id": 13,
+            "type": "activity",
+            "name": "Thưởng thức ẩm thực đường phố Sài Gòn",
+            "time": "Day 8",
+            "duration": "18:00-21:00",
+            "activity": "Thưởng thức ẩm thực",
+            "reason": "Khám phá văn hóa ẩm thực phong phú và đa dạng của Sài Gòn qua các món ăn đường phố.",
+            "imageUrl": "https://example.com/am_thuc_sai_gon.jpg",
+            "priceRange": "100.000VND-300.000VND"
+        }
     ];
 
     const [tripItems, setTripItems] = useState(initialArray);
@@ -28,16 +112,20 @@ const TripPlan = () => {
     return (
         <Flex direction='column' width='100%'>
             <GeneralInform />
-            <ScrollableContainer >
+            <ScrollableContainer>
                 <Box position='relative' h="100vh">
                     <DividerComponent content='Day 1' />
                     <List spacing={5}>
                         {tripItems.map(item => (
-                            <Box>
-                                <ListItem key={item.id}>
+                            <Box key={item.id}>
+                                <ListItem>
                                     <Flex alignItems="center">
                                         <Box flex="1">
-                                            <TripItem item={item} onRemove={() => removeItem(item.id)} />
+                                            {item.type === "stop" ? (
+                                                <Stop stop={item} onRemove={() => removeItem(item.id)} />
+                                            ) : (
+                                                <Activity activity={item} onRemove={() => removeItem(item.id)} />
+                                            )}
                                         </Box>
                                     </Flex>
                                 </ListItem>
@@ -48,24 +136,6 @@ const TripPlan = () => {
                                         borderStyle='dashed'
                                         height='30px'
                                     />
-                                    <Text>5 km</Text>
-                                </Stack>
-                            </Box>
-                        ))}
-                    </List>
-                    <DividerComponent content='Day 2' />
-                    <List spacing={5}>
-                        {tripItems.map(item => (
-                            <Box>
-                                <ListItem key={item.id}>
-                                    <Flex alignItems="center">
-                                        <Box flex="1">
-                                            <TripItem item={item} onRemove={() => removeItem(item.id)} />
-                                        </Box>
-                                    </Flex>
-                                </ListItem>
-                                <Stack direction='row' h='30px' p={4}>
-                                    <Divider orientation='vertical' />
                                     <Text>5 km</Text>
                                 </Stack>
                             </Box>
