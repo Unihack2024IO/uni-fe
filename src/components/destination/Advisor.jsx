@@ -86,11 +86,9 @@ const Advisor = ({ event }) => {
           "advice": "Hãy tận hưởng trọn vẹn không khí sôi động và màn trình diễn ánh sáng tuyệt đẹp của Cầu Rồng."
         }
     }
-    console.log(event);
     return (
         <Box
             mx="auto"
-            mt={4}
         >  
             <Heading size='lg' marginBottom={"1.5rem"}>
                 Quyết định: {

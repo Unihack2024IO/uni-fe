@@ -1,12 +1,12 @@
 import { Flex } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import DestinationCard from './DestinationCard';
-import DestinationDetails from './DestinationDetails';
+import AttractionInfo from './AttractionInfo';
 import ScrollableContainer from '../common/ScrollBar';
 import axios from 'axios';
 
-const activityFilter = (activityList) => {
-    return activityList.map((item) => ({
+const attractionFilter = (attractionList) => {
+    return attractionList.map((item) => ({
         id: item.id,
         destinationId: item.destinationId,
         photo: item.imageUrl,
@@ -20,11 +20,12 @@ const activityFilter = (activityList) => {
         activities: item.activities,
         type : item.type,
         time : item.time,
-        
+        destination: item.destination,
     }));
 };
 
-const getActivityList = async () => {
+const getAttractionList = async () => {
+    // const API = process.env.REACT_APP_HOST + "/response/activities";
     const API = process.env.REACT_APP_HOST + "/activities";
     try {
         const response = await axios.get(API);
@@ -35,13 +36,13 @@ const getActivityList = async () => {
     }
 };
 
-const DestinationList = () => {
+const AttractionList = () => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [data, setData] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const activityList = await getActivityList();
-            const filteredData = activityFilter(activityList);
+            const attractionList = await getAttractionList();
+            const filteredData = attractionFilter(attractionList);
             setData(filteredData);
         };
         fetchData();
@@ -63,9 +64,9 @@ const DestinationList = () => {
                     ))}
                 </Flex>
             </ScrollableContainer>
-            {selectedItem && <DestinationDetails  selectedItem={selectedItem} handleClose={handleClose} />}
+            {selectedItem && <AttractionInfo  attraction={selectedItem} handleClose={handleClose} />}
         </Flex>
     );
 };
 
-export default DestinationList;
+export default AttractionList;

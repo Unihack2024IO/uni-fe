@@ -1,5 +1,8 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Text, Box, Flex } from '@chakra-ui/react';
-import DestinationList from './DestinationList';
+// import DestinationList from './DestinationList';
+import AttractionList from './AttractionList';
+import EventList from './EventList';
+import UtilList from './UtilList';
 import SearchBar from './SearchBar';
 
 const TabComponent = () => {
@@ -15,30 +18,23 @@ const TabComponent = () => {
                             Attractions
                         </Tab>
                         <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
-                            Stops
+                            Events
                         </Tab>
                         <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
-                            Restaurants
-                        </Tab>
-                        <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
-                            Stays
+                            Utilities
                         </Tab>
                     </TabList>
                     <SearchBar />
                 </Flex>
                 <TabPanels>
                     <TabPanel>
-                        < DestinationList />
+                        <AttractionList />
                     </TabPanel>
                     <TabPanel>
-                        {/* <Stops */}
-                        {/* < DestinationList /> */}
+                        <EventList />
                     </TabPanel>
                     <TabPanel>
-                        < DestinationList />
-                    </TabPanel>
-                    <TabPanel>
-                        < DestinationList />
+                        <UtilList />
                     </TabPanel>
                 </TabPanels>
             </Tabs>

@@ -2,8 +2,11 @@ import { Flex } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import DestinationCard from './DestinationCard';
 import DestinationDetails from './DestinationDetails';
+import EventInfo from './EventInfo';
 import ScrollableContainer from '../common/ScrollBar';
 import axios from 'axios';
+
+// Event same activity
 
 const activityFilter = (activityList) => {
     return activityList.map((item) => ({
@@ -35,7 +38,7 @@ const getActivityList = async () => {
     }
 };
 
-const DestinationList = () => {
+const EventList = () => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -63,9 +66,9 @@ const DestinationList = () => {
                     ))}
                 </Flex>
             </ScrollableContainer>
-            {selectedItem && <DestinationDetails  selectedItem={selectedItem} handleClose={handleClose} />}
+            {selectedItem && <EventInfo event={selectedItem} handleClose={handleClose} />}
         </Flex>
     );
 };
 
-export default DestinationList;
+export default EventList;
