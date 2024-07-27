@@ -3,20 +3,13 @@ import {
     Input,
     Box,
     useBreakpointValue,
-    Flex,
-    Text,
-    useStyleConfig,
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper,
-    NumberIncrementStepper,
-    NumberDecrementStepper,
+    useStyleConfig
 } from '@chakra-ui/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 
-const DateAndTime = () => {
+const GeneralInform = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [buttonLabel, setButtonLabel] = useState('');
 
@@ -59,11 +52,11 @@ const DateAndTime = () => {
                 </Flex>
                 <div>
                     <NumberInput size='md' maxW={24} defaultValue={3} min={1} max={10}>
-                    <NumberInputField />
-                    <NumberInputStepper>
-                        <NumberIncrementStepper />
-                        <NumberDecrementStepper />
-                    </NumberInputStepper>
+                        <NumberInputField />
+                        <NumberInputStepper>
+                            <NumberIncrementStepper />
+                            <NumberDecrementStepper />
+                        </NumberInputStepper>
                     </NumberInput>
                 </div>
             </Flex>
@@ -71,4 +64,4 @@ const DateAndTime = () => {
     );
 };
 
-export default DateAndTime;
+export default GeneralInform;

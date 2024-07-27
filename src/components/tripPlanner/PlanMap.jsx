@@ -1,52 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import React from 'react';
+import Map from './Map';
 
-const PlanMap = ({ plan }) => {
-    const [map, setMap] = useState(null);
-    const mapContainerStyle = {
-        height: '80vh',
-        width: '45vw',
-    };
-
-    // Calculate center based on the plan locations
-    const calculateCenter = (locations) => {
-        if (locations.length === 0) return { lat: 37.7749, lng: -122.4194 }; // Default to San Francisco if no locations
-
-        const latitudes = locations.map(location => location.lat);
-        const longitudes = locations.map(location => location.lng);
-
-        const avgLat = latitudes.reduce((a, b) => a + b, 0) / latitudes.length;
-        const avgLng = longitudes.reduce((a, b) => a + b, 0) / longitudes.length;
-
-        return { lat: avgLat, lng: avgLng };
-    };
-
-    const center = calculateCenter(plan);
-    const zoom = plan.length > 0 ? 12 : 2; // Zoom out if no places are provided
-
-    const onLoad = (mapInstance) => {
-        setMap(mapInstance);
-    };
-
-    const markers = plan.map((place, index) => (
-        <Marker
-            key={index}
-            position={{ lat: place.lat, lng: place.lng }}
-            title={place.name || 'No Name'}
-        />
-    ));
+const PlanMap = () => {
+    const locations = [
+        { lat: 16.047079, lng: 108.206230 }, // Dragon Bridge
+        { lat: 16.047307, lng: 108.223093 }, // My Khe Beach
+        { lat: 16.075406, lng: 108.235450 }, // Han Market
+        { lat: 16.075778, lng: 108.250128 }, // Son Tra Mountain (Monkey Mountain)
+        { lat: 16.056051, lng: 108.208944 }, // Marble Mountains
+    ];
 
     return (
-        <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-            <GoogleMap
-                mapContainerStyle={mapContainerStyle}
-                center={center}
-                zoom={zoom}
-                onLoad={onLoad}
-            >
-                {markers}
-            </GoogleMap>
-        </LoadScript>
+        <div>
+            <h1>Da Nang Attractions</h1>
+            <Map locations={locations} />
+        </div>
     );
 };
 

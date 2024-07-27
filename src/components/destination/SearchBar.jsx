@@ -22,7 +22,7 @@ const SearchBar = () => {
                 boxShadow="0px 5px 6px rgba(0, 0, 0, 0.1)"
                 _placeholder={{ color: 'gray.500' }}
             />
-        </InputGroup>
+        </InputGroup >
     );
 };
 
