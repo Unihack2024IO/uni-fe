@@ -32,7 +32,7 @@ const DestinationDetails = ({ selectedItem, handleClose }) => {
     return (
         <Box
             flex="0 0 45%"
-            p={4}
+            p={"1.5rem"}
             ml="10"
             borderWidth="1px"
             borderRadius="md"

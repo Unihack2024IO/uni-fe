@@ -3,7 +3,14 @@ import {
     Input,
     Box,
     useBreakpointValue,
-    useStyleConfig
+    Flex,
+    Text,
+    useStyleConfig,
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper,
 } from '@chakra-ui/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -26,26 +33,40 @@ const DateAndTime = () => {
 
     return (
         <Box>
-            <DatePicker
-                selected={selectedDate}
-                onChange={(date) => {
-                    setSelectedDate(date);
-                    setButtonLabel(format(date, 'yyyy/MM/dd'));
-                }}
-                dateFormat="yyyy/MM/dd"
-                customInput={
-                    <Input
-                        placeholder={buttonLabel || 'Select Date'}
-                        size="lg"
-                        variant="outline"
-                        sx={inputStyles}
-                        w="40"
-                        border="none"
-                        borderBottom={`2px solid`}
-                        borderRadius={0}
+            <Flex gap={"1rem"} alignItems={"center"}>
+                <Flex flexDirection={"row"} alignItems={"center"} gap={"0.5rem"}>
+                    <Text fontSize="3xl" fontWeight="normal" transform={"scaleX(-1)"}>🚶‍♀️</Text>
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={(date) => {
+                            setSelectedDate(date);
+                            setButtonLabel(format(date, 'yyyy/MM/dd'));
+                        }}
+                        dateFormat="EEEE dd MMMM"
+                        customInput={
+                            <Input
+                                placeholder={buttonLabel || 'Select Date'}
+                                size="lg"
+                                variant="outline"
+                                sx={inputStyles}
+                                w="40"
+                                border="none"
+                                borderBottom={`2px solid`}
+                                borderRadius={0}
+                            />
+                        }
                     />
-                }
-            />
+                </Flex>
+                <div>
+                    <NumberInput size='md' maxW={24} defaultValue={3} min={1} max={10}>
+                    <NumberInputField />
+                    <NumberInputStepper>
+                        <NumberIncrementStepper />
+                        <NumberDecrementStepper />
+                    </NumberInputStepper>
+                    </NumberInput>
+                </div>
+            </Flex>
         </Box>
     );
 };

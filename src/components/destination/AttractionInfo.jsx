@@ -11,16 +11,6 @@ const  AttractionInfo = ({ attraction }) => {
 
         <Box mt="4">
 
-            {attraction.name && (
-
-                <Heading as="h2" size="lg" mb={3}>
-
-                    {attraction.name}
-
-                </Heading>
-
-            )}
-
             {attraction.description && (
 
                 <Text fontSize="md" color="gray.600" mb={4}>

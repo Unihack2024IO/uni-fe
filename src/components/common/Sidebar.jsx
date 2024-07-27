@@ -8,6 +8,8 @@ import {
     useDisclosure,
     Flex,
     Box,
+    Avatar,
+    Text
 } from '@chakra-ui/react';
 import { IconButton } from '@chakra-ui/react'
 import {
@@ -52,7 +54,11 @@ function Sidebar() {
             position="sticky"
             top="0"
             bottom="0"
-            left="0">
+            left="0"
+            flexDirection={"column"}
+            justifyContent="space-between"
+        
+        >
             <Box display="flex" flexDirection="column">
                 <IconOnlyButton onClick={onOpen} icon={<ArrowForwardIcon />} />
                 <IconOnlyButton icon={<BellIcon />} />
@@ -60,6 +66,10 @@ function Sidebar() {
                 <IconOnlyButton icon={<InfoIcon />} />
                 <IconOnlyButton icon={<EmailIcon />} />
                 <IconOnlyButton icon={<SearchIcon />} />
+            </Box>
+            <Box display="flex" flexDirection="column" mx={"auto"} mb={4}>
+                <Avatar w="30px" h="auto" mx="auto" bg={"blackAlpha.700"}/>
+                <Text size="md" fontWeight={"500"}>Guest</Text>
             </Box>
 
             <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
