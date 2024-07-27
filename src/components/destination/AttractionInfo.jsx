@@ -4,7 +4,7 @@ import { MdLocationOn, MdEmail, MdPhone, MdRestaurantMenu } from 'react-icons/md
 import Advisor from './Advisor.jsx';
 
 
-const  AttractionInfo = ({ attraction }) => {
+const AttractionInfo = ({ attraction }) => {
     if (!attraction) return null;
 
     return (
@@ -504,7 +504,7 @@ const  AttractionInfo = ({ attraction }) => {
                 </Box>
             )}
             <Divider my={4} />
-            <Advisor/>
+            <Advisor />
         </Box>
 
     );
