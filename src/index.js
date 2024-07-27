@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import theme from './theme'; // Ensure you have a theme file
-import Home from './pages/Home';
-import Destination from './pages/Destination';
-import UserPersona from './pages/UserPersona';
-import TripSuggestion from './pages/TripSuggestion';
-import Advisor from './components/destination/Advisor';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import theme from "./theme"; // Ensure you have a theme file
+import Home from "./pages/Home";
+import Destination from "./pages/Destination";
+import UserPersona from "./pages/UserPersona";
+import TripSuggestion from "./pages/TripSuggestion";
+import Advisor from "./components/destination/Advisor";
 // Your Google Client ID
-const CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID';
+const CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
