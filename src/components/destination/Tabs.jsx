@@ -10,17 +10,17 @@ const TabComponent = () => {
 
             <Tabs variant='solid-rounded' colorScheme='black'>
                 <Flex justifyContent='left' margin='2vw 0'>
-                    <TabList>
-                        <Tab _selected={{ color: 'white', bg: 'black' }}>
+                    <TabList gap={"1rem"}>
+                        <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
                             Attractions
                         </Tab>
-                        <Tab _selected={{ color: 'white', bg: 'black' }}>
-                            Events
+                        <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
+                            Stops
                         </Tab>
-                        <Tab _selected={{ color: 'white', bg: 'black' }}>
+                        <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
                             Restaurants
                         </Tab>
-                        <Tab _selected={{ color: 'white', bg: 'black' }}>
+                        <Tab _selected={{ color: 'white', bg: 'black', p: "0rem 2rem" }}>
                             Stays
                         </Tab>
                     </TabList>
@@ -31,7 +31,8 @@ const TabComponent = () => {
                         < DestinationList />
                     </TabPanel>
                     <TabPanel>
-                        < DestinationList />
+                        {/* <Stops */}
+                        {/* < DestinationList /> */}
                     </TabPanel>
                     <TabPanel>
                         < DestinationList />
