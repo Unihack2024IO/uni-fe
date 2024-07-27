@@ -10,6 +10,7 @@ import hagiang from '../../assets/images/places/hagiangcity.jpg';
 import DividerComponent from '../common/Divider';
 import ScrollableContainer from '../../components/common/ScrollBar';
 import GeneralInform from '../common/GeneralInform';
+
 const TripPlan = () => {
     const initialArray = [
         { id: 1, photo: danang, Name: 'Cau ban tay', Location: 'Son tra, Da Nang', rating: 4.7, description: "With broad beaches, fantastic street food, the fabled Hai Van Pass, and a growing collection of cafes, restaurants, and bars, it’s no wonder the residents of Da Nang sport some of the broadest smiles in the country. The warm sands of My Khe Beach sweep south from the mountainous Son Tra Peninsula. Da Nang hosts some of Vietnam's top luxury resorts, but much of the beach still belongs to the people who make it their playground, gym, and source of livelihood." },

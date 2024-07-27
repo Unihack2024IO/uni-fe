@@ -7,6 +7,7 @@ import TripPlan from '../components/tripPlanner/TripPlan';
 import Display from '../components/tripPlanner/Display';
 import MenuComponent from '../components/common/Menu';
 import Category from '../components/tripPlanner/Category';
+
 export default function TripSuggestion() {
     return (
         <Flex direction="column">
