@@ -85,79 +85,54 @@ const Advisor = ({ event }) => {
       ],
       "advice": "Hãy tận hưởng trọn vẹn không khí sôi động và màn trình diễn ánh sáng tuyệt đẹp của Cầu Rồng."
     }
-    return (
-        <Box
-            mx="auto"
-        >  
-            <Heading size='lg' marginBottom={"1.5rem"}>
-                Quyết định: {
-                  event.recommendation.shouldVisit.decision === "yes" ? "😍" 
-                  : event.recommendation.shouldVisit.decision === "no" ? "😞" 
-                  : "🤔"
-                }
-            </Heading>
-            <Flex gap="0.5rem">
-                <Heading size='sm' color="gray.700" width={"80px"}>
-                    Lí do:
-                </Heading>
-                <Text fontSize="md" color="gray.600" mb={2}>
-                    {event.recommendation.shouldVisit.reasons.pro.map((reason, index) => (
-                        <Text key={index} fontSize="md" color="gray.600" mb={2}>
-                            &#8226; {reason}
-                        </Text>
-                    ))}
-                    {event.recommendation.shouldVisit.reasons.con.map((reason, index) => (
-                        <Text key={index} fontSize="md" color="gray.600" mb={2}>
-                            &#8226; {reason}
-                        </Text>
-                    ))}
-                </Text>
-            </Flex>
-            <Divider my={4} />
-            <Heading size='sm' marginBottom={"0.5rem"}>
-                Cần chuẩn bị: 
-            </Heading>
-            <Text fontSize="md" color="gray.600" mb={4} ml={"1rem"}>
-                {event.preparation.items.map((item, index) => (
-                    <Text key={index} fontSize="md" color="gray.600" mb={2}>
-                        <AddIcon boxSize={3} mr={"0.5rem"} color="green.500"/> {item.item} - {item.reason}
-                    </Text>
-                ))}
+  };
+
+  return (
+    <Box mx="auto">
+      <Heading size="lg" marginBottom="1.5rem">
+        Quyết định:
+        {event.recommendation.shouldVisit.decision === "yes" ? "😍"
+          : event.recommendation.shouldVisit.decision === "no" ? "😞"
+            : "🤔"}
+      </Heading>
+      <Flex gap="0.5rem">
+        <Heading size="sm" color="gray.700" width="80px">
+          Lí do:
+        </Heading>
+        <Stack fontSize="md" color="gray.600" mb={2}>
+          {event.recommendation.shouldVisit.reasons.pro.map((reason, index) => (
+            <Text key={index} fontSize="md" color="gray.600" mb={2}>
+              &#8226; {reason}
             </Text>
-            <Divider my={4} />
-            <Heading size='sm' marginBottom={"0.5rem"}>
-                Chú ý:
-            </Heading>
-            <Text fontSize="md" color="gray.600" mb={4} ml={"1rem"} mt={"0.5rem"}>
-                {event.caution.warnings.map((warning, index) => (
-                    <HStack key={index} fontSize="md" color="gray.600" mb={2}>
-                        <WarningIcon boxSize={4} color="red.500" />
-                        <Text>{warning.warning}</Text>
-                    </HStack>
-                ))}
+          ))}
+          {event.recommendation.shouldVisit.reasons.con.map((reason, index) => (
+            <Text key={index} fontSize="md" color="gray.600" mb={2}>
+              &#8226; {reason}
             </Text>
-            <Divider my={4} />
-            <Heading size='sm' marginBottom={"0.5rem"}>
-              Thời gian lý tưởng:
-            </Heading>
-            <Text fontSize="md" color="gray.600" mb={4}>
-                {event.ideal_time}
-            </Text>
-          </Flex>
+          ))}
+        </Stack>
+      </Flex>
+      <Divider my={4} />
+      <Heading size="sm" marginBottom="0.5rem">
+        Cần chuẩn bị:
+      </Heading>
+      <Stack fontSize="md" color="gray.600" mb={4} ml="1rem">
+        {event.preparation.items.map((item, index) => (
+          <Text key={index} fontSize="md" color="gray.600" mb={2}>
+            <AddIcon boxSize={3} mr="0.5rem" color="green.500" /> {item.item} - {item.reason}
+          </Text>
         ))}
       </Stack>
       <Divider my={4} />
       <Heading size="sm" marginBottom="0.5rem">
         Chú ý:
       </Heading>
-      <Stack spacing={2} ml={4} mb={4}>
+      <Stack fontSize="md" color="gray.600" mb={4} ml="1rem" mt="0.5rem">
         {event.caution.warnings.map((warning, index) => (
-          <Flex key={index} align="center">
-            <WarningIcon boxSize={4} color="red.500" mr={2} />
-            <Text fontSize="md" color="gray.600">
-              {warning.warning} - {warning.reason}
-            </Text>
-          </Flex>
+          <HStack key={index} fontSize="md" color="gray.600" mb={2}>
+            <WarningIcon boxSize={4} color="red.500" />
+            <Text>{warning.warning}</Text>
+          </HStack>
         ))}
       </Stack>
       <Divider my={4} />

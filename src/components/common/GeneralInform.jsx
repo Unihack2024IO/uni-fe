@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
+    Flex,
+    Text,
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper,
     Input,
     Box,
     useBreakpointValue,
@@ -26,9 +33,9 @@ const GeneralInform = () => {
 
     return (
         <Box>
-            <Flex gap={"1rem"} alignItems={"center"}>
-                <Flex flexDirection={"row"} alignItems={"center"} gap={"0.5rem"}>
-                    <Text fontSize="3xl" fontWeight="normal" transform={"scaleX(-1)"}>🚶‍♀️</Text>
+            <Flex gap="1rem" alignItems="center">
+                <Flex flexDirection="row" alignItems="center" gap="0.5rem">
+                    <Text fontSize="3xl" fontWeight="normal" transform="scaleX(-1)">🚶‍♀️</Text>
                     <DatePicker
                         selected={selectedDate}
                         onChange={(date) => {
@@ -44,7 +51,7 @@ const GeneralInform = () => {
                                 sx={inputStyles}
                                 w="40"
                                 border="none"
-                                borderBottom={`2px solid`}
+                                borderBottom="2px solid"
                                 borderRadius={0}
                             />
                         }

@@ -53,7 +53,7 @@ const Activity = ({ activity, onRemove }) => {
                         </MotionBox>
                         <Box>
                             <Heading as="h3" size="md" noOfLines={1}>
-                                {activity.name} <Badge colorScheme="green" ml="1">{activity.time}</Badge>
+                                {activity.name} <Badge colorScheme="green" ml="1">activity</Badge>
                             </Heading>
                             <Stack direction="row" align="center" fontSize="sm" color="gray.500">
                                 <MdLocationOn /><Text>{activity.location}</Text>
