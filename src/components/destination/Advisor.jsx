@@ -37,7 +37,7 @@ const Advisor = ({ information }) => {
         information.id,
         information.destinationId,
         "vwAwTu5swrt6wh2dCxtC",
-        "2024/09/30"
+        "2024/07/30"
       ));
 
       setAdvisor(res.data);
