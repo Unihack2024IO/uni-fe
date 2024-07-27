@@ -90,12 +90,7 @@ const Advisor = ({ event }) => {
     return (
         <Box
             mx="auto"
-            maxWidth={"50%"}
             mt={4}
-            border={"1px solid #e2e8f0"}
-            boxShadow={"md"}
-            borderRadius={"md"}
-            p="1.5rem"
         >  
             <Heading size='lg' marginBottom={"1.5rem"}>
                 Quyết định: {
@@ -105,7 +100,7 @@ const Advisor = ({ event }) => {
                 }
             </Heading>
             <Flex gap="0.5rem">
-                <Heading size='sm' color="gray.700" width={"70px"}>
+                <Heading size='sm' color="gray.700" width={"80px"}>
                     Lí do:
                 </Heading>
                 <Text fontSize="md" color="gray.600" mb={2}>
